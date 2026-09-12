@@ -91,7 +91,7 @@ export function WorkSection() {
           </h2>
         </div>
         <p className="max-w-sm text-sm text-muted-foreground">
-          Air India APIs and agents, Podio ETL on AWS, five years of B2B integrations, a 2nd-place CVE hackathon.
+          Air India APIs, Dataraven backups, BIG.DK integrations, PFC on Podio and React Native.
         </p>
       </header>
 

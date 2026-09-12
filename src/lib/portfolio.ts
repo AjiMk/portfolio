@@ -68,62 +68,61 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    slug: "podio-backup",
+    slug: "dataraven",
     index: "02",
-    title: "Podio Backup Tool",
-    year: "2024",
-    role: "Design & engineering, Phases",
+    title: "Dataraven",
+    year: "2019 — 2024",
+    role: "Team · Phases",
     summary:
-      "Cloud ETL for Podio backups and integrations. Concurrent workers, Kubernetes on AWS, ops dashboards.",
+      "Bare-metal backup for Podio, then e-conomic. Node.js, BullMQ, worker threads, and GC tuning so large jobs stay up.",
     description:
-      "I designed and built Podio Backup at Phases. It pulls data out of Podio, runs backups and integrations as jobs, and shows you what is happening. Node.js worker threads and BullMQ on Redis handle the jobs. Services run as Kubernetes microservices on AWS (Lambda, S3, RDS). Dashboards cover usage, process logs, and alerts. If a space fails, you get a notification instead of finding out later.",
-    image: "/images/podio.jpg",
-    imageAlt: "Desk with a monitor showing a backup dashboard",
-    tags: ["Node.js", "BullMQ", "AWS", "Kubernetes"],
+      "Dataraven is the backup product we built at Phases. Team work. Bare metal, not a cloud ETL toy. Node.js, BullMQ for the job stream and events. CPU-heavy work goes to worker threads. We also tuned Node's garbage collection so the process could sit on large backups without falling over.\n\nIt started with Podio. We later onboarded e-conomic onto the same path.",
+    image: "/images/dataraven.jpg",
+    imageAlt: "Quiet bare-metal server room",
+    tags: ["Node.js", "BullMQ", "Workers", "Podio"],
     outcomes: [
-      { label: "Jobs", value: "Concurrent" },
+      { label: "Host", value: "Bare metal" },
       { label: "Queue", value: "BullMQ" },
-      { label: "Cloud", value: "AWS" },
+      { label: "Also", value: "e-conomic" },
     ],
   },
   {
-    slug: "api-integrations",
+    slug: "big-dk",
     index: "03",
-    title: "B2B API integrations",
+    title: "BIG.DK & Concur SDK",
     year: "2019 — 2024",
-    role: "Senior Software Engineer, Phases",
+    role: "Individual contributor · Phases",
     summary:
-      "OAuth integrations with QuickBooks, SAP Concur, Azure AD, and HubSpot. PSR-7 PHP SDK. HubSpot to BigQuery.",
+      "SAP Concur SDK, then BIG.DK's sales flow: Concur, CMAP, Azure AD, and custom integrations around that.",
     description:
-      "Most of my time at Phases was B2B API work. QuickBooks, SAP Concur, Azure AD, HubSpot. I wrote a PSR-7 PHP SDK so we were not rewriting the Concur client for every project. CRM data went from HubSpot into BigQuery for Looker Studio. On older systems like MS NAV I worked with the .NET team to put a REST API in front.\n\nSame years: led a team of five, Kafka and RabbitMQ, Terraform on AWS, GitLab CI/CD. API responses about 60% faster after worker-thread work. Provisioning about 60% faster after Terraform. Incident resolution about 50% faster after ELK.",
+      "I wrote an SDK for SAP Concur so we were not rewriting the client for every project.\n\nFor BIG.DK I wired how they run sales: SAP Concur, CMAP, Azure AD, and a few custom integrations around those. Same person, same years — not a platform team handing me tickets.",
     image: "/images/integrations.jpg",
     imageAlt: "Server racks in a quiet data center aisle",
-    tags: ["REST", "OAuth 2.0", "Kafka", "Terraform"],
+    tags: ["SAP Concur", "CMAP", "Azure AD", "SDK"],
     outcomes: [
-      { label: "APIs", value: "4+" },
-      { label: "Latency", value: "−60%" },
-      { label: "Incidents", value: "−50%" },
+      { label: "Client", value: "BIG.DK" },
+      { label: "SDK", value: "Concur" },
+      { label: "IdP", value: "Azure AD" },
     ],
   },
   {
-    slug: "cve-alert",
+    slug: "pfc",
     index: "04",
-    title: "CVE Alert System",
-    year: "2024",
-    role: "Solo · Phases AI Hackathon, 2nd place",
+    title: "PFC",
+    year: "Phases",
+    role: "Individual contributor · Phases",
     summary:
-      "24-hour solo build, 2nd place. CVE monitoring, incident reports, and chatbot alerts for the stacks you run.",
+      "Podio for a Bengaluru plastics recycler: stakeholders, employee and franchisee onboarding. React Native + GraphQL app on top.",
     description:
-      "I built this in 24 hours for the Phases AI Hackathon and came second. You register sites and technologies. It watches CVE feeds, opens an incident when something matches, and pings you through a chatbot. TypeScript and Express, MongoDB, Azure BotBuilder. Small, but it does one job: tell you about the CVEs that apply to you.",
-    image: "/images/cve.jpg",
-    imageAlt: "Security desk with a monitor of alert graphs",
-    tags: ["TypeScript", "MongoDB", "Azure Bot"],
+      "PFC is a plastics recycling company in Bengaluru. I set up Podio for them and built the automations around how they actually run: stakeholder management, employee onboarding, franchisee onboarding.\n\nI also built their mobile app. React Native, GraphQL.",
+    image: "/images/pfc.jpg",
+    imageAlt: "Plastics recycling workshop with stacked bales and a conveyor",
+    tags: ["Podio", "React Native", "GraphQL"],
     outcomes: [
-      { label: "Award", value: "2nd" },
-      { label: "Build", value: "24h" },
-      { label: "Team", value: "Solo" },
+      { label: "Org", value: "Podio" },
+      { label: "Mobile", value: "RN" },
+      { label: "API", value: "GraphQL" },
     ],
-    href: "https://github.com/AjiMk/cve-alert-system",
   },
 ];
 
@@ -187,9 +186,9 @@ export const experience = [
     org: "Phases India Technology Solutions",
     role: "Senior Software Engineer",
     bullets: [
-      "Led a team of five on Node.js and TypeScript services (NestJS, Kafka, RabbitMQ, Redis).",
-      "AWS with Terraform, GitLab CI/CD, Docker, Kubernetes.",
-      "About 60% faster API responses, 60% faster provisioning, 50% faster incident resolution after ELK.",
+      "Team: Dataraven, a bare-metal Podio backup. Node.js, BullMQ, worker threads, GC tuning. Later onboarded e-conomic.",
+      "On my own: SAP Concur SDK. BIG.DK sales flow (Concur, CMAP, Azure AD). PFC on Podio, plus a React Native + GraphQL app.",
+      "Led a team of five on Node.js and TypeScript services.",
     ],
   },
   {
@@ -197,7 +196,9 @@ export const experience = [
     org: "Unieke Software Solutions",
     role: "Junior Software Engineer",
     bullets: [
-      "Full-stack Laravel and Vue. Matrimonial platform with real-time chat, PWA, OAuth 2.0, admin dashboards.",
+      "Built a matrimonial product with a separate admin portal and real-time chat.",
+      "Built a static website.",
+      "Contributed to UniekeCare, a healthcare product for care homes in the UK.",
     ],
   },
 ] as const;
@@ -209,7 +210,7 @@ export const capabilities = [
   },
   {
     title: "APIs & backends",
-    body: "REST, GraphQL, NestJS, API gateways, DDD, event-driven services.",
+    body: "REST, GraphQL, SDKs. SAP Concur, Azure AD, CMAP. Event-driven services.",
   },
   {
     title: "Distributed systems",
@@ -259,7 +260,7 @@ export const openSource = [
 
 export const about = {
   p1: "I'm a lead engineer in Kochi with eight years on backends. At Air India I work on distributed systems around passenger, payment, and operational events, and I build AI agents for internal workflows.",
-  p2: "Before that I spent five and a half years at Phases. I led a team of five on Node.js and TypeScript services, message queues, Terraform on AWS, and a logging stack that cut incident time roughly in half. Earlier I did full-stack work with Laravel and Vue at Unieke.",
+  p2: "I started as a junior at Unieke: a matrimonial product (admin portal, real-time chat), a static site, and UniekeCare — healthcare for UK care homes. Then five and a half years at Phases. Team work on Dataraven. On my own: a SAP Concur SDK, BIG.DK, and PFC including a React Native app.",
   p3: "Outside work I am going through Linux From Scratch, learning Lisp, and reading about security. BSc Computer Science, Kerala University, 2014 to 2017.",
 };
 
@@ -290,6 +291,7 @@ export const stack = [
   "PostgreSQL",
   "MongoDB",
   "GraphQL",
+  "React Native",
   "ELK",
 ];
 
