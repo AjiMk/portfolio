@@ -1,4 +1,4 @@
-name: Deploy to Oracle Cloud VPS
+name: Deploy to Oracle VM
 
 on:
   push:
@@ -6,40 +6,16 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
+  deploy:
+    runs-on: self-hosted
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js 22
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: 'npm'
-
-      - name: Install Dependencies
-        run: npm ci
-
-      - name: Run Typecheck & Linter
+      - name: Deploy with Docker Compose
         run: |
-          npm run typecheck
-          npm run lint
-
-      - name: Deploy Docker Container via SSH
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.ORACLE_HOST }}
-          username: ${{ secrets.ORACLE_USER }}
-          key: ${{ secrets.ORACLE_SSH_KEY }}
-          port: 22
-          script: |
-            set -e
-            if [ ! -d "$HOME/portfolio" ]; then
-              git clone https://github.com/AjiMk/portfolio.git "$HOME/portfolio"
-            fi
-            cd "$HOME/portfolio"
-            git fetch origin main
-            git reset --hard origin/main
-            docker compose up -d --build
+          echo "Deploying Portfolio to Oracle VM..."
+          docker compose build
+          docker compose up -d
+          echo "Deployment Successful!"
