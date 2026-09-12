@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowUpRight, Github, Linkedin } from "lucide-react";
+import { ArrowDown, ArrowUpRight, FileDown, Github, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { profile, stats } from "@/lib/portfolio";
 
@@ -23,6 +23,12 @@ export function Hero() {
             <a href="#work">
               View work
               <ArrowDown className="size-4" />
+            </a>
+          </Button>
+          <Button size="lg" variant="outline" asChild>
+            <a href={profile.cv} download>
+              CV
+              <FileDown className="size-4" />
             </a>
           </Button>
           <Button size="lg" variant="outline" asChild>

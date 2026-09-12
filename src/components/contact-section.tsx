@@ -1,5 +1,5 @@
 import { type FormEvent, useState } from "react";
-import { Check, Copy, Github, Linkedin, Mail, Phone } from "lucide-react";
+import { Check, Copy, FileDown, Github, Linkedin, Mail, Phone } from "lucide-react";
 import { toast } from "sonner";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
@@ -126,6 +126,14 @@ export function ContactSection() {
             >
               <Linkedin className="size-4" />
               LinkedIn
+            </a>
+            <a
+              href={profile.cv}
+              download
+              className="inline-flex h-11 items-center gap-2 text-foreground"
+            >
+              <FileDown className="size-4" />
+              Download CV
             </a>
             <Button
               type="button"

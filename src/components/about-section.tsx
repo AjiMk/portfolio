@@ -1,4 +1,4 @@
-import { about, award, capabilities, education, experience, practice, stack } from "@/lib/portfolio";
+import { about, award, capabilities, education, experience, openSource, practice, stack } from "@/lib/portfolio";
 import { Separator } from "@/components/ui/separator";
 
 export function AboutSection() {
@@ -9,7 +9,7 @@ export function AboutSection() {
           About
         </p>
         <h2 className="mt-2 font-display text-display font-medium tracking-tight">
-          About
+          Eight years on backends
         </h2>
       </header>
 
@@ -57,10 +57,35 @@ export function AboutSection() {
                     </p>
                     <p className="font-mono text-xs text-muted-foreground">{job.period}</p>
                   </div>
-                  <p className="mt-1 text-sm text-muted-foreground">{job.detail}</p>
+                  <ul className="mt-2 list-disc space-y-1 pl-4 text-sm text-muted-foreground">
+                    {job.bullets.map((bullet) => (
+                      <li key={bullet}>{bullet}</li>
+                    ))}
+                  </ul>
                 </li>
               ))}
             </ol>
+          </div>
+
+          <div>
+            <h3 className="font-mono text-xs tracking-[0.18em] text-muted-foreground uppercase">
+              Open source
+            </h3>
+            <ul className="mt-4 grid gap-4">
+              {openSource.map((item) => (
+                <li key={item.title}>
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-medium text-foreground underline-offset-4 hover:underline"
+                  >
+                    {item.title}
+                  </a>
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{item.detail}</p>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div>

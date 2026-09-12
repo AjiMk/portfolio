@@ -1,11 +1,12 @@
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
 import { AuthProvider } from "@/lib/auth/provider";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
+import { jsonLd } from "@/lib/portfolio";
 import appCss from "../styles.css?url";
 
-const APP_NAME = "Ajay Kumar M";
+const APP_NAME = "Ajay Kumar M — Lead Engineer";
 const APP_DESCRIPTION =
-  "Lead engineer in Kochi. APIs, event-driven systems, and AI agents at Air India.";
+  "Lead engineer at Air India. Eight years of Node.js and TypeScript — event-driven APIs, AWS, Kubernetes, and AI agents. Kochi, India.";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -15,6 +16,10 @@ export const Route = createRootRoute({
       { title: APP_NAME },
       { name: "description", content: APP_DESCRIPTION },
       { name: "theme-color", content: "#f2eee6" },
+      { property: "og:title", content: APP_NAME },
+      { property: "og:description", content: APP_DESCRIPTION },
+      { property: "og:image", content: "/og.jpg" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
@@ -36,6 +41,10 @@ export const Route = createRootRoute({
       </head>
       <body className="bg-background text-foreground">
         <PreviewHostBridge />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <AuthProvider>
           <Outlet />
         </AuthProvider>

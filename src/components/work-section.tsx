@@ -87,11 +87,11 @@ export function WorkSection() {
             Selected work
           </p>
           <h2 className="mt-2 font-display text-display font-medium tracking-tight">
-            Selected work
+            Backend systems I have shipped
           </h2>
         </div>
         <p className="max-w-sm text-sm text-muted-foreground">
-          Air India, a Podio backup tool, B2B API work at Phases, and a hackathon CVE alert system.
+          Air India APIs and agents, Podio ETL on AWS, five years of B2B integrations, a 2nd-place CVE hackathon.
         </p>
       </header>
 
