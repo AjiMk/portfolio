@@ -27,7 +27,7 @@ jobs:
           npm run typecheck
           npm run lint
 
-      - name: Deploy via SSH to Oracle VM
+      - name: Deploy Docker Container via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.ORACLE_HOST }}
@@ -36,14 +36,10 @@ jobs:
           port: 22
           script: |
             set -e
-            export PATH=$PATH:/usr/local/bin:~/.nvm/versions/node/$(ls ~/.nvm/versions/node 2>/dev/null | tail -n 1)/bin
             if [ ! -d "$HOME/portfolio" ]; then
               git clone https://github.com/AjiMk/portfolio.git "$HOME/portfolio"
             fi
             cd "$HOME/portfolio"
             git fetch origin main
             git reset --hard origin/main
-            npm ci
-            npm run build
-            pm2 startOrReload ecosystem.config.cjs --update-env || pm2 start ecosystem.config.cjs
-            pm2 save
+            docker compose up -d --build
