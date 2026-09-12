@@ -45,5 +45,5 @@ jobs:
             git reset --hard origin/main
             npm ci
             npm run build
-            pm2 reload portfolio --update-env || pm2 start .output/server/index.mjs --name portfolio
+            pm2 startOrReload ecosystem.config.cjs --update-env || pm2 start ecosystem.config.cjs
             pm2 save
