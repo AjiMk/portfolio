@@ -15,6 +15,7 @@ export const Route = createRootRoute({
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: APP_NAME },
       { name: "description", content: APP_DESCRIPTION },
+      { name: "color-scheme", content: "light dark" },
       { name: "theme-color", content: "#f2eee6" },
       { property: "og:title", content: APP_NAME },
       { property: "og:description", content: APP_DESCRIPTION },
@@ -37,6 +38,11 @@ export const Route = createRootRoute({
   component: () => (
     <html lang="en" className="antialiased" suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem("theme");var isDark=t==="dark"||(!t&&window.matchMedia("(prefers-color-scheme: dark)").matches);if(isDark){document.documentElement.classList.add("dark");document.documentElement.classList.remove("light");}else{document.documentElement.classList.remove("dark");document.documentElement.classList.add("light");}}catch(e){}})();`,
+          }}
+        />
         <HeadContent />
       </head>
       <body className="bg-background text-foreground">

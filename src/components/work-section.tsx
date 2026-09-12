@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Filter } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -10,6 +10,33 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { projects, type Project } from "@/lib/portfolio";
 import { cn } from "@/lib/utils";
+
+const categories = [
+  { id: "all", label: "All work" },
+  {
+    id: "ai",
+    label: "AI & Agents",
+    match: (p: Project) => p.tags.some((t) => t.toLowerCase().includes("ai")),
+  },
+  {
+    id: "event-driven",
+    label: "APIs & Systems",
+    match: (p: Project) =>
+      p.tags.some((t) =>
+        ["event-driven", "node.js", "bullmq", "workers", "typescript"].includes(t.toLowerCase()),
+      ),
+  },
+  {
+    id: "integrations",
+    label: "Integrations & Mobile",
+    match: (p: Project) =>
+      p.tags.some((t) =>
+        ["sap concur", "cmap", "azure ad", "sdk", "podio", "react native", "graphql"].includes(
+          t.toLowerCase(),
+        ),
+      ),
+  },
+] as const;
 
 function ProjectCard({
   project,
@@ -25,20 +52,20 @@ function ProjectCard({
       type="button"
       onClick={() => onOpen(project)}
       className={cn(
-        "group flex w-full flex-col text-left",
+        "group flex w-full flex-col text-left transition-transform duration-300 ease-[var(--ease-out)] hover:-translate-y-1",
         featured && "lg:grid lg:grid-cols-[1.4fr_1fr] lg:items-stretch lg:gap-10",
       )}
     >
       <div
         className={cn(
-          "overflow-hidden rounded-xl bg-card p-2 shadow-[var(--shadow-border)] transition-[box-shadow] duration-[var(--motion-fast)] ease-[var(--ease-out)] group-hover:shadow-[var(--shadow-border-hover)]",
+          "overflow-hidden rounded-xl bg-card p-2 shadow-[var(--shadow-border)] transition-all duration-[var(--motion-slow)] ease-[var(--ease-out)] group-hover:shadow-[var(--shadow-border-hover)] group-hover:ring-1 group-hover:ring-primary/20",
           featured ? "aspect-16/10 lg:aspect-auto lg:min-h-full" : "aspect-16/10",
         )}
       >
         <img
           src={project.image}
           alt={project.imageAlt}
-          className="media h-full w-full rounded-lg object-cover transition-transform duration-[var(--motion-slow)] ease-[var(--ease-out)] group-hover:scale-[1.03]"
+          className="media h-full w-full rounded-lg object-cover transition-transform duration-500 ease-[var(--ease-out)] group-hover:scale-[1.04]"
         />
       </div>
       <div className={cn("flex flex-col justify-center", featured ? "pt-6 lg:pt-0" : "pt-4")}>
@@ -46,11 +73,11 @@ function ProjectCard({
           <p className="font-mono text-xs tracking-widest text-muted-foreground">
             {project.index} · {project.year}
           </p>
-          <ArrowUpRight className="size-4 text-muted-foreground transition-transform duration-[var(--motion-fast)] ease-[var(--ease-out)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          <ArrowUpRight className="size-4 text-muted-foreground transition-transform duration-[var(--motion-fast)] ease-[var(--ease-out)] group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-primary" />
         </div>
         <h3
           className={cn(
-            "mt-2 font-display font-medium tracking-tight text-foreground",
+            "mt-2 font-display font-medium tracking-tight text-foreground transition-colors duration-200 group-hover:text-primary",
             featured ? "text-3xl sm:text-4xl" : "text-2xl",
           )}
         >
@@ -63,7 +90,7 @@ function ProjectCard({
           {project.tags.map((tag) => (
             <li
               key={tag}
-              className="rounded-full bg-muted px-3 py-1 font-mono text-xs text-muted-foreground"
+              className="rounded-full bg-muted px-3 py-1 font-mono text-xs text-muted-foreground transition-colors duration-200 group-hover:bg-primary/10 group-hover:text-primary"
             >
               {tag}
             </li>
@@ -76,12 +103,22 @@ function ProjectCard({
 
 export function WorkSection() {
   const [selected, setSelected] = useState<Project | null>(null);
-  const featured = projects.find((project) => project.featured) ?? projects[0];
-  const rest = projects.filter((project) => project.slug !== featured.slug);
+  const [activeFilter, setActiveFilter] = useState<string>("all");
+
+  const category = categories.find((c) => c.id === activeFilter);
+  const filteredProjects =
+    activeFilter === "all" || !category || !("match" in category)
+      ? projects
+      : projects.filter(category.match);
+
+  const featured = filteredProjects.find((project) => project.featured);
+  const rest = featured
+    ? filteredProjects.filter((project) => project.slug !== featured.slug)
+    : filteredProjects;
 
   return (
     <section id="work" className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
-      <header className="mb-10 flex flex-col gap-3 sm:mb-14 sm:flex-row sm:items-end sm:justify-between">
+      <header className="mb-10 flex flex-col gap-6 sm:mb-14 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p className="font-mono text-eyebrow tracking-[0.18em] text-muted-foreground uppercase">
             Selected work
@@ -95,17 +132,43 @@ export function WorkSection() {
         </p>
       </header>
 
+      {/* Category Filter Bar */}
+      <div className="mb-10 flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+        <span className="flex items-center gap-1.5 font-mono text-xs text-muted-foreground mr-2 shrink-0">
+          <Filter className="size-3.5" /> Filter:
+        </span>
+        {categories.map((cat) => (
+          <button
+            key={cat.id}
+            type="button"
+            onClick={() => setActiveFilter(cat.id)}
+            className={cn(
+              "shrink-0 rounded-full px-4 py-1.5 font-mono text-xs transition-all duration-200",
+              activeFilter === cat.id
+                ? "bg-primary text-primary-foreground shadow-sm"
+                : "border border-border bg-card/60 text-muted-foreground hover:bg-card hover:text-foreground",
+            )}
+          >
+            {cat.label}
+          </button>
+        ))}
+      </div>
+
       <div className="flex flex-col gap-16">
-        <ProjectCard project={featured} featured onOpen={setSelected} />
-        <div className="grid gap-10 md:grid-cols-3">
-          {rest.map((project) => (
-            <ProjectCard key={project.slug} project={project} onOpen={setSelected} />
-          ))}
-        </div>
+        {featured ? (
+          <ProjectCard project={featured} featured onOpen={setSelected} />
+        ) : null}
+        {rest.length > 0 ? (
+          <div className="grid gap-10 md:grid-cols-3">
+            {rest.map((project) => (
+              <ProjectCard key={project.slug} project={project} onOpen={setSelected} />
+            ))}
+          </div>
+        ) : null}
       </div>
 
       <Dialog open={Boolean(selected)} onOpenChange={(open) => !open && setSelected(null)}>
-        <DialogContent aria-describedby={undefined}>
+        <DialogContent aria-describedby={undefined} className="backdrop-blur-sm">
           {selected ? (
             <div className="overflow-y-auto">
               <div className="overflow-hidden rounded-lg bg-card">
@@ -142,7 +205,7 @@ export function WorkSection() {
                     href={selected.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex h-11 items-center gap-2 text-sm text-foreground"
+                    className="inline-flex h-11 items-center gap-2 text-sm text-foreground hover:text-primary transition-colors"
                   >
                     View on GitHub
                     <ArrowUpRight className="size-4" />

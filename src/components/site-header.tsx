@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { nav, profile } from "@/lib/portfolio";
 import { cn } from "@/lib/utils";
 
@@ -53,10 +54,10 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-40 border-b transition-[background-color,border-color,box-shadow] duration-[var(--motion-fast)] ease-[var(--ease-out)]",
+        "sticky top-0 z-40 border-b backdrop-blur-md transition-[background-color,border-color,box-shadow] duration-[var(--motion-fast)] ease-[var(--ease-out)]",
         scrolled || open
-          ? "border-border bg-background/90 shadow-[var(--shadow-border)]"
-          : "border-transparent bg-background/70",
+          ? "border-border bg-background/85 shadow-[var(--shadow-border)]"
+          : "border-transparent bg-background/60",
       )}
     >
       <a
@@ -97,44 +98,50 @@ export function SiteHeader() {
 
         <div className="hidden items-center gap-3 md:flex">
           <span className="flex items-center gap-2 font-mono text-xs text-muted-foreground">
-            <span className="size-1.5 rounded-full bg-primary" aria-hidden="true" />
+            <span className="relative flex size-2" aria-hidden="true">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
+            </span>
             {profile.availability}
           </span>
+          <ThemeToggle />
           <Button size="sm" asChild>
             <a href="#contact">Get in touch</a>
           </Button>
         </div>
 
-        <Button
-          variant="ghost"
-          size="icon"
-          className="md:hidden"
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-          aria-label={open ? "Close menu" : "Open menu"}
-          onClick={() => setOpen((value) => !value)}
-        >
-          <span className="relative size-4">
-            <Menu
-              className={cn(
-                "absolute inset-0 size-4 transition-[opacity,transform,filter] duration-300 ease-[cubic-bezier(0.2,0,0,1)]",
-                open ? "scale-[0.25] opacity-0 blur-[4px]" : "scale-100 opacity-100 blur-none",
-              )}
-            />
-            <X
-              className={cn(
-                "absolute inset-0 size-4 transition-[opacity,transform,filter] duration-300 ease-[cubic-bezier(0.2,0,0,1)]",
-                open ? "scale-100 opacity-100 blur-none" : "scale-[0.25] opacity-0 blur-[4px]",
-              )}
-            />
-          </span>
-        </Button>
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
+          <Button
+            variant="ghost"
+            size="icon"
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            aria-label={open ? "Close menu" : "Open menu"}
+            onClick={() => setOpen((value) => !value)}
+          >
+            <span className="relative size-4">
+              <Menu
+                className={cn(
+                  "absolute inset-0 size-4 transition-[opacity,transform,filter] duration-300 ease-[cubic-bezier(0.2,0,0,1)]",
+                  open ? "scale-[0.25] opacity-0 blur-[4px]" : "scale-100 opacity-100 blur-none",
+                )}
+              />
+              <X
+                className={cn(
+                  "absolute inset-0 size-4 transition-[opacity,transform,filter] duration-300 ease-[cubic-bezier(0.2,0,0,1)]",
+                  open ? "scale-100 opacity-100 blur-none" : "scale-[0.25] opacity-0 blur-[4px]",
+                )}
+              />
+            </span>
+          </Button>
+        </div>
       </div>
 
       {open ? (
         <div
           id="mobile-nav"
-          className="border-t border-border bg-background px-5 py-6 md:hidden"
+          className="border-t border-border bg-background/95 backdrop-blur-md px-5 py-6 md:hidden"
         >
           <nav className="flex flex-col gap-1" aria-label="Mobile">
             {nav.map((item) => (

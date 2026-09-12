@@ -33,7 +33,7 @@ export function AboutSection() {
             {stack.map((item) => (
               <li
                 key={item}
-                className="rounded-full border border-border px-3 py-1 font-mono text-xs text-muted-foreground"
+                className="rounded-full border border-border bg-card/40 px-3 py-1 font-mono text-xs text-muted-foreground transition-colors duration-200 hover:border-primary/50 hover:bg-primary/10 hover:text-foreground"
               >
                 {item}
               </li>
