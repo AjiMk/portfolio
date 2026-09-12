@@ -1,0 +1,151 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --color-background: #f2eee6;
+  --color-foreground: #1a1814;
+  --color-card: #ebe6db;
+  --color-muted: #e4ddd0;
+  --color-muted-foreground: #6d675c;
+  --color-primary: #25403f;
+  --color-primary-foreground: #f2eee6;
+  --color-secondary: #e4ddd0;
+  --color-secondary-foreground: #1a1814;
+  --color-accent: #25403f;
+  --color-accent-foreground: #f2eee6;
+  --color-border: color-mix(in oklab, var(--color-foreground) 12%, transparent);
+  --color-ring: #25403f;
+  --color-input: color-mix(in oklab, var(--color-foreground) 16%, transparent);
+
+  --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+
+  --radius-xs: 0.25rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius: 0.75rem;
+
+  --text-eyebrow: 0.75rem;
+  --text-hero: clamp(2.75rem, 1.2rem + 8vw, 6.5rem);
+  --text-display: clamp(1.75rem, 1.15rem + 2.2vw, 2.85rem);
+  --text-lede: clamp(1.125rem, 1rem + 0.6vw, 1.35rem);
+
+  --shadow-border:
+    0 0 0 1px color-mix(in oklab, var(--color-foreground) 8%, transparent),
+    0 1px 2px -1px color-mix(in oklab, var(--color-foreground) 6%, transparent),
+    0 2px 4px 0 color-mix(in oklab, var(--color-foreground) 4%, transparent);
+  --shadow-border-hover:
+    0 0 0 1px color-mix(in oklab, var(--color-foreground) 14%, transparent),
+    0 16px 32px -16px color-mix(in oklab, var(--color-foreground) 22%, transparent);
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-smooth-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-micro: 80ms;
+  --motion-quick: 150ms;
+  --motion-fast: 250ms;
+  --motion-slow: 400ms;
+  --motion-emphasis: 500ms;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+    background-color: var(--color-background);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    line-height: 1.55;
+    min-height: 100dvh;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--color-primary) 22%, transparent);
+    color: var(--color-foreground);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 3px;
+  }
+
+  img.media {
+    outline: 1px solid color-mix(in oklab, var(--color-foreground) 10%, transparent);
+    outline-offset: -1px;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.rise-in {
+  animation: rise-in var(--motion-emphasis) var(--ease-smooth-out) both;
+}
+
+.rise-in-1 {
+  animation-delay: 60ms;
+}
+.rise-in-2 {
+  animation-delay: 140ms;
+}
+.rise-in-3 {
+  animation-delay: 220ms;
+}
+.rise-in-4 {
+  animation-delay: 300ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .rise-in,
+  .rise-in-1,
+  .rise-in-2,
+  .rise-in-3,
+  .rise-in-4 {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
