@@ -78,9 +78,9 @@ export function Hero() {
           <img
             src="/images/ajay.jpg"
             alt="Cartoon illustration of Ajay Kumar M"
-            className="media aspect-square w-full rounded-lg object-cover object-top"
-            width={1408}
-            height={1408}
+            className="media aspect-3/4 w-full rounded-lg object-cover object-top"
+            width={1008}
+            height={1344}
           />
         </div>
         <figcaption className="mt-3 flex items-center justify-between font-mono text-xs text-muted-foreground">
