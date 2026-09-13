@@ -16,7 +16,8 @@ const categories = [
   {
     id: "ai",
     label: "AI & Agents",
-    match: (p: Project) => p.tags.some((t) => t.toLowerCase().includes("ai")),
+    match: (p: Project) =>
+      p.tags.some((t) => /ai|agentic|hitl/i.test(t)),
   },
   {
     id: "event-driven",
@@ -31,7 +32,7 @@ const categories = [
     label: "Integrations & Mobile",
     match: (p: Project) =>
       p.tags.some((t) =>
-        ["sap concur", "cmap", "azure ad", "sdk", "podio", "react native", "graphql"].includes(
+        ["sap concur", "azure ad", "hubspot", "gcp", "sdk", "podio", "react native", "graphql"].includes(
           t.toLowerCase(),
         ),
       ),
@@ -128,7 +129,7 @@ export function WorkSection() {
           </h2>
         </div>
         <p className="max-w-sm text-sm text-muted-foreground">
-          Air India APIs, Dataraven backups, BIG.DK integrations, PFC on Podio and React Native.
+          WhatsOnMyAI at Air India, Dataraven backups, B2B integrations, PFC on Podio and React Native.
         </p>
       </header>
 

@@ -6,7 +6,7 @@ import appCss from "../styles.css?url";
 
 const APP_NAME = "Ajay Kumar M — Lead Engineer";
 const APP_DESCRIPTION =
-  "Lead engineer at Air India. Eight years of Node.js and TypeScript — event-driven APIs, AWS, Kubernetes, and AI agents. Kochi, India.";
+  "Lead engineer at Air India. WhatsOnMyAI — agentic meal-card parsing with HITL — plus event-driven APIs. Eight years of Node.js and TypeScript. Kochi, India.";
 
 export const Route = createRootRoute({
   head: () => ({
