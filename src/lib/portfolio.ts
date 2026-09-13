@@ -3,7 +3,7 @@ export const profile = {
   shortName: "Ajay",
   role: "Lead engineer",
   location: "Kochi, India",
-  email: "ajaymeledath007@gmail.com",
+  email: "ajimk@proton.me",
   phone: "+91 9895827488",
   phoneHref: "tel:+919895827488",
   github: "https://github.com/AjiMk",
@@ -54,12 +54,12 @@ export const projects: Project[] = [
     year: "2025 —",
     role: "Lead Engineer, Air India",
     summary:
-      "Meal-card PDFs in, structured menus out. Agentic LLM workflows and a HITL portal for Air India's F&B team.",
+      "Automated catering menu parsing platform transforming unstructured meal-card PDFs into verified relational data via multi-model LLM workflows and HITL validation.",
     description:
-      "WhatsOnMyAI is the F&B tool I built at Air India. Meal cards used to be PDFs that someone typed into a database. The system reads those cards with a multi-model agentic workflow, writes structured rows, and puts them in front of a person before anything is trusted.\n\nThe portal is React. The pipeline is Node.js and Python, PostgreSQL underneath. Human-in-the-loop is not a slogan here — F&B still edits the output. That is the point. Manual entry went away.\n\nSame job, different systems: I also lead OCN event handling, passenger APIs, and payment event processing. Event-driven, high volume, has to stay up.",
+      "WhatsOnMyAI is an enterprise inflight catering management platform engineered for Air India's Food & Beverage team. Inflight meal plans distributed as PDF meal cards were previously entered into databases through manual transcription. The platform automates data ingestion using a multi-model agentic pipeline that parses document layouts, extracts complex menu specifications, and maps them to structured database schema.\n\nFeaturing a high-performance Node.js processing service, PostgreSQL data store, and a modern React management portal, the system embeds Human-in-the-Loop (HITL) validation directly into the publishing lifecycle. F&B domain experts review, adjust, and approve AI extractions before persistence, completely eliminating manual entry errors while guaranteeing catering accuracy.",
     image: "/images/whatsonmyai.jpg",
     imageAlt: "Airline catering kitchen with meal trays and paper cards",
-    tags: ["Agentic AI", "HITL", "Python", "Node.js"],
+    tags: ["Agentic AI", "HITL", "Node.js", "TypeScript"],
     outcomes: [
       { label: "Team", value: "F&B" },
       { label: "Review", value: "HITL" },
@@ -74,9 +74,9 @@ export const projects: Project[] = [
     year: "2019 — 2024",
     role: "Team · Phases",
     summary:
-      "Podio backup at scale. Node.js, BullMQ, Redis, worker threads. Kubernetes on AWS. Later, e-conomic on the same path.",
+      "High-throughput automated backup and data archival platform engineered with Node.js, BullMQ, Redis, and worker threads on AWS Kubernetes.",
     description:
-      "Dataraven is the backup product we built at Phases. Team work. Node.js, BullMQ and Redis for the job stream, worker threads for the CPU-heavy bits. We tuned garbage collection so large backups did not fall over. Services ran as microservices on Kubernetes, AWS behind that. Dashboards for usage, logs, and alerts.\n\nIt started with Podio. We later onboarded e-conomic onto the same path.",
+      "Dataraven is a scalable enterprise backup and recovery solution built at Phases for platforms like Podio and e-conomic. The system processes high-volume document and workspace backups through distributed asynchronous job queues managed by BullMQ and Redis, deploying dedicated Node.js worker threads to offload CPU-intensive compression and serialization tasks.\n\nArchitected as microservices running on AWS Kubernetes (EKS), garbage collection and stream buffering were meticulously optimized to prevent memory spikes during heavy payload processing. The platform incorporates comprehensive administrative dashboards, real-time telemetry, and automated incident monitoring.",
     image: "/images/dataraven.jpg",
     imageAlt: "Quiet bare-metal server room",
     tags: ["Node.js", "BullMQ", "Kubernetes", "AWS"],
@@ -93,9 +93,9 @@ export const projects: Project[] = [
     year: "2019 — 2024",
     role: "Individual contributor · Phases",
     summary:
-      "SAP Concur SDK. BIG.DK sales flow — Concur, CMAP, Azure AD. Also QuickBooks, HubSpot to BigQuery, REST in front of MS NAV.",
+      "Enterprise B2B integration suite including a custom PSR-7 SAP Concur PHP SDK, automated sales workflows across Azure AD/CMAP, and GCP BigQuery pipelines.",
     description:
-      "I wrote a PHP SDK for SAP Concur (PSR-7) so we were not rewriting the client for every project.\n\nFor BIG.DK I wired how they run sales: SAP Concur, CMAP, Azure AD, and a few custom integrations around those.\n\nSame years: QuickBooks, a HubSpot-to-BigQuery pipeline on GCP for Looker Studio, and REST APIs in front of older systems like MS NAV with the .NET team.",
+      "Engineered a suite of enterprise B2B integrations and system connectors during my tenure at Phases. Author of a custom PSR-7 compliant PHP SDK for SAP Concur, standardizing authentication and API interactions across multiple enterprise products.\n\nArchitected automated sales and identity orchestration for BIG.DK, connecting SAP Concur, CMAP ERP, and Azure AD. Additionally developed automated GCP BigQuery ETL data pipelines from HubSpot for executive reporting in Looker Studio, alongside high-performance REST wrappers interfacing with legacy MS NAV backend environments.",
     image: "/images/integrations.jpg",
     imageAlt: "Server racks in a quiet data center aisle",
     tags: ["SAP Concur", "Azure AD", "HubSpot", "GCP"],
@@ -109,12 +109,12 @@ export const projects: Project[] = [
     slug: "pfc",
     index: "04",
     title: "PFC",
-    year: "Phases",
+    year: "2019 — 2024",
     role: "Individual contributor · Phases",
     summary:
-      "Podio for a Bengaluru plastics recycler: stakeholders, employee and franchisee onboarding. React Native + GraphQL app on top.",
+      "Custom ERP workflow automations on Podio alongside a cross-platform React Native and GraphQL mobile application for recycling operations.",
     description:
-      "PFC is a plastics recycling company in Bengaluru. I set up Podio for them and built the automations around how they actually run: stakeholder management, employee onboarding, franchisee onboarding.\n\nI also built their mobile app. React Native, GraphQL.",
+      "Architected operational automation and enterprise management systems for PFC, a major plastics recycling enterprise based in Bengaluru. Designed structured Podio workspace architectures and automated business logic governing stakeholder workflows, employee onboarding, and franchisee operations.\n\nTo extend operational access to field staff, developed a cross-platform mobile application powered by React Native and GraphQL, providing real-time data sync, franchisee management, and operational reporting.",
     image: "/images/pfc.jpg",
     imageAlt: "Plastics recycling workshop with stacked bales and a conveyor",
     tags: ["Podio", "React Native", "GraphQL"],
@@ -143,7 +143,7 @@ export const essays: Essay[] = [
     body: [
       "Air India's F&B team used to type meal cards into a database. WhatsOnMyAI reads those PDFs with a multi-model agentic workflow, writes structured rows to Postgres, and opens a portal so someone can check the result.",
       "The agent is not unsupervised. Human-in-the-loop is the product. If F&B cannot edit a row, it should not have been written.",
-      "I also lead the event APIs around this: OCN, passenger, payment. The agents only work if those contracts are clear.",
+      "The workflow uses structured schemas and human verification, ensuring data accuracy before any menu updates hit downstream systems.",
     ],
   },
   {
@@ -177,7 +177,7 @@ export const experience = [
     role: "Lead Engineer",
     bullets: [
       "WhatsOnMyAI: meal-card PDFs to structured menus for F&B, with a HITL review portal.",
-      "Multi-model agentic LLM workflows. Node.js, Python, PostgreSQL, React.",
+      "Multi-model agentic LLM workflows. Node.js, TypeScript, PostgreSQL, React.",
       "OCN event handling, passenger APIs, payment event processing. Mentoring.",
     ],
   },
@@ -311,7 +311,7 @@ export const jsonLd = {
     addressRegion: "Kerala",
     addressCountry: "IN",
   },
-  email: "mailto:ajaymeledath007@gmail.com",
+  email: "mailto:ajimk@proton.me",
   telephone: "+919895827488",
   url: "https://github.com/AjiMk/portfolio",
   sameAs: [
