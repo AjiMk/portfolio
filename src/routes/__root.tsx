@@ -6,7 +6,7 @@ import appCss from "../styles.css?url";
 
 const APP_NAME = "Ajay Kumar M — Lead Engineer";
 const APP_DESCRIPTION =
-  "Lead engineer at Air India. WhatsOnMyAI — agentic meal-card parsing with HITL — plus event-driven APIs. Eight years of Node.js and TypeScript. Kochi, India.";
+  "Lead engineer at Air India, Kochi. Eight years building backend systems, including WhatsOnMyAI, which turns airline meal-card PDFs into checked menu data and brings meal choice to the booking page.";
 
 export const Route = createRootRoute({
   head: () => ({
