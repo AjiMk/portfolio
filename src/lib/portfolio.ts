@@ -11,16 +11,16 @@ export const profile = {
   cv: "/ajay-kumar-m.pdf",
   availability: "Air India · Kochi",
   availabilityDetail:
-    "Lead engineer at Air India in Kochi. Happy to talk about backend roles, APIs, agentic AI, or security. Email is easiest.",
-  lede: "Lead engineer at Air India. Eight years on Node.js and TypeScript — event-driven APIs, and WhatsOnMyAI, an agentic system that turns meal-card PDFs into structured data.",
-  now: "Air India. WhatsOnMyAI for F&B, plus passenger and payment event APIs.",
+    "Lead engineer at Air India in Kochi. Happy to talk about backend roles, API design, applied AI, or security. Email is easiest.",
+  lede: "Lead engineer at Air India, turning slow, manual work into software people can rely on. I created WhatsOnMyAI, the AI platform that reads inflight meal cards and puts the menu in front of passengers as they book. Eight years of building backends with Node.js and TypeScript.",
+  now: "Air India. WhatsOnMyAI, meal choice on the booking page, and passenger and payment APIs.",
 } as const;
 
 export const stats = [
-  { value: "8+", label: "Years" },
+  { value: "8+", label: "Years building" },
   { value: "5", label: "Engineers led" },
   { value: "60%", label: "Faster APIs" },
-  { value: "50%", label: "Faster incidents" },
+  { value: "50%", label: "Faster issue fixes" },
 ] as const;
 
 export const nav = [
@@ -52,18 +52,18 @@ export const projects: Project[] = [
     index: "01",
     title: "WhatsOnMyAI",
     year: "2025 —",
-    role: "Lead Engineer, Air India",
+    role: "Lead Engineer · Air India",
     summary:
-      "Automated catering menu parsing platform transforming unstructured meal-card PDFs into verified relational data via multi-model LLM workflows and HITL validation.",
+      "Air India's menu platform. It reads inflight meal-card PDFs with AI, has the catering team check the result, and puts those menus on the booking page so passengers can choose their meal.",
     description:
-      "WhatsOnMyAI is an enterprise inflight catering management platform engineered for Air India's Food & Beverage team. Inflight meal plans distributed as PDF meal cards were previously entered into databases through manual transcription. The platform automates data ingestion using a multi-model agentic pipeline that parses document layouts, extracts complex menu specifications, and maps them to structured database schema.\n\nFeaturing a high-performance Node.js processing service, PostgreSQL data store, and a modern React management portal, the system embeds Human-in-the-Loop (HITL) validation directly into the publishing lifecycle. F&B domain experts review, adjust, and approve AI extractions before persistence, completely eliminating manual entry errors while guaranteeing catering accuracy.",
+      "Inflight menus reach Air India's Food & Beverage team as PDF meal cards, covering every route, every cabin and every season. Getting them into the system used to mean typing each one in by hand: slow work, and easy to get wrong.\n\nWhatsOnMyAI does that job. Several AI models work together to read each card's layout, pull out the dishes and details, and save them as clean, structured data. Nothing goes live on the AI's word alone: a review portal shows the F&B team exactly what was extracted, and they can correct or approve it in a few clicks.\n\nThe approved menus also feed the Air India booking page, where passengers can see what is served on their flight and pick a meal preference as they book. Because the catering team has checked every item, what a passenger picks is what the kitchen can serve.\n\nI designed and built the platform with Node.js, TypeScript, Python, PostgreSQL, and React.",
     image: "/images/whatsonmyai.jpg",
     imageAlt: "Airline catering kitchen with meal trays and paper cards",
-    tags: ["Agentic AI", "HITL", "Node.js", "TypeScript"],
+    tags: ["Applied AI", "Human review", "Node.js", "TypeScript"],
     outcomes: [
-      { label: "Team", value: "F&B" },
-      { label: "Review", value: "HITL" },
-      { label: "Store", value: "Postgres" },
+      { label: "Reads", value: "Meal cards" },
+      { label: "Checked by", value: "F&B team" },
+      { label: "Serves", value: "Booking page" },
     ],
     featured: true,
   },
@@ -72,37 +72,37 @@ export const projects: Project[] = [
     index: "02",
     title: "Dataraven",
     year: "2019 — 2024",
-    role: "Team · Phases",
+    role: "Senior Software Engineer · Phases",
     summary:
-      "High-throughput automated backup and data archival platform engineered with Node.js, BullMQ, Redis, and worker threads on AWS Kubernetes.",
+      "A backup service that keeps businesses' Podio and e-conomic data safe, running large backup jobs in the background without slowing anything down.",
     description:
-      "Dataraven is a scalable enterprise backup and recovery solution built at Phases for platforms like Podio and e-conomic. The system processes high-volume document and workspace backups through distributed asynchronous job queues managed by BullMQ and Redis, deploying dedicated Node.js worker threads to offload CPU-intensive compression and serialization tasks.\n\nArchitected as microservices running on AWS Kubernetes (EKS), garbage collection and stream buffering were meticulously optimized to prevent memory spikes during heavy payload processing. The platform incorporates comprehensive administrative dashboards, real-time telemetry, and automated incident monitoring.",
+      "Teams that run their business on Podio or e-conomic need a copy of their data they can trust. Dataraven makes those backups automatically and keeps them restorable.\n\nThe hard part is volume: some accounts hold huge numbers of files and records. Dataraven splits the work into a queue of background jobs and spreads heavy tasks like compression across separate workers, so large backups finish reliably and memory stays under control. It runs as a set of small services on AWS, with dashboards and alerts so the team sees problems before customers do.\n\nBuilt with Node.js, TypeScript, BullMQ, Redis, Docker, and Kubernetes.",
     image: "/images/dataraven.jpg",
     imageAlt: "Quiet bare-metal server room",
-    tags: ["Node.js", "BullMQ", "Kubernetes", "AWS"],
+    tags: ["Node.js", "Background jobs", "Kubernetes", "AWS"],
     outcomes: [
-      { label: "Queue", value: "BullMQ" },
-      { label: "Run", value: "K8s" },
-      { label: "Also", value: "e-conomic" },
+      { label: "Protects", value: "Podio" },
+      { label: "And", value: "e-conomic" },
+      { label: "Runs on", value: "AWS" },
     ],
   },
   {
     slug: "big-dk",
     index: "03",
-    title: "B2B API integrations",
+    title: "Business system integrations",
     year: "2019 — 2024",
-    role: "Individual contributor · Phases",
+    role: "Senior Software Engineer · Phases",
     summary:
-      "Enterprise B2B integration suite including a custom PSR-7 SAP Concur PHP SDK, automated sales workflows across Azure AD/CMAP, and GCP BigQuery pipelines.",
+      "Connected the business tools companies already use (expense, ERP, sign-in, CRM, and accounting) so data moves between them automatically instead of by copy-paste.",
     description:
-      "Engineered a suite of enterprise B2B integrations and system connectors during my tenure at Phases. Author of a custom PSR-7 compliant PHP SDK for SAP Concur, standardizing authentication and API interactions across multiple enterprise products.\n\nArchitected automated sales and identity orchestration for BIG.DK, connecting SAP Concur, CMAP ERP, and Azure AD. Additionally developed automated GCP BigQuery ETL data pipelines from HubSpot for executive reporting in Looker Studio, alongside high-performance REST wrappers interfacing with legacy MS NAV backend environments.",
+      "Most companies run on a handful of systems that don't talk to each other. At Phases I built the connections between them.\n\nFor BIG.DK, I automated the sales and user-account workflow across SAP Concur, their CMAP ERP, and Microsoft Azure AD, so new customers and staff are set up once and kept in sync everywhere. I also wrote a reusable PHP library for SAP Concur that several client projects shared, which made every new Concur integration faster to deliver.\n\nOther work included a pipeline that sends HubSpot sales data to Google BigQuery for leadership dashboards in Looker Studio, QuickBooks integrations, and APIs that let modern apps work with an older Microsoft NAV system.",
     image: "/images/integrations.jpg",
     imageAlt: "Server racks in a quiet data center aisle",
     tags: ["SAP Concur", "Azure AD", "HubSpot", "GCP"],
     outcomes: [
-      { label: "SDK", value: "Concur" },
-      { label: "IdP", value: "Azure AD" },
-      { label: "Analytics", value: "BigQuery" },
+      { label: "Connected", value: "7 systems" },
+      { label: "Reusable", value: "Concur SDK" },
+      { label: "Reporting", value: "BigQuery" },
     ],
   },
   {
@@ -110,18 +110,18 @@ export const projects: Project[] = [
     index: "04",
     title: "PFC",
     year: "2019 — 2024",
-    role: "Individual contributor · Phases",
+    role: "Senior Software Engineer · Phases",
     summary:
-      "Custom ERP workflow automations on Podio alongside a cross-platform React Native and GraphQL mobile application for recycling operations.",
+      "Digitised day-to-day operations for a Bengaluru plastics-recycling company: automated workflows for staff and franchisees, plus a mobile app for the team in the field.",
     description:
-      "Architected operational automation and enterprise management systems for PFC, a major plastics recycling enterprise based in Bengaluru. Designed structured Podio workspace architectures and automated business logic governing stakeholder workflows, employee onboarding, and franchisee operations.\n\nTo extend operational access to field staff, developed a cross-platform mobile application powered by React Native and GraphQL, providing real-time data sync, franchisee management, and operational reporting.",
+      "PFC runs a network of recycling franchisees, and much of its coordination lived in spreadsheets and messages. I set up their operations in Podio, covering employee onboarding, franchisee management, and tracking work between stakeholders, with the routine steps automated.\n\nTo reach staff who are rarely at a desk, I built a mobile app for Android and iOS that keeps field data in sync and gives managers live reports.\n\nBuilt with Podio, React Native, and GraphQL.",
     image: "/images/pfc.jpg",
     imageAlt: "Plastics recycling workshop with stacked bales and a conveyor",
     tags: ["Podio", "React Native", "GraphQL"],
     outcomes: [
-      { label: "Org", value: "Podio" },
-      { label: "Mobile", value: "RN" },
-      { label: "API", value: "GraphQL" },
+      { label: "Client", value: "Recycling" },
+      { label: "Automated", value: "Onboarding" },
+      { label: "Mobile", value: "iOS + Android" },
     ],
   },
 ];
@@ -139,22 +139,23 @@ export const essays: Essay[] = [
     slug: "whatsonmyai",
     date: "2026",
     title: "WhatsOnMyAI",
-    dek: "Meal cards were PDFs. F&B still reviews the output.",
+    dek: "The AI does the typing. The F&B team keeps the final say.",
     body: [
-      "Air India's F&B team used to type meal cards into a database. WhatsOnMyAI reads those PDFs with a multi-model agentic workflow, writes structured rows to Postgres, and opens a portal so someone can check the result.",
-      "The agent is not unsupervised. Human-in-the-loop is the product. If F&B cannot edit a row, it should not have been written.",
-      "The workflow uses structured schemas and human verification, ensuring data accuracy before any menu updates hit downstream systems.",
+      "Air India's F&B team used to type meal cards into a database by hand. WhatsOnMyAI reads those PDFs with several AI models working together, saves the result as structured data, and opens a portal where someone checks it.",
+      "The AI is not left on its own. Human review is the product, not an add-on. If the F&B team can't see and fix a row, it shouldn't have been saved.",
+      "Every extraction follows a fixed structure and waits for approval, so wrong data never reaches the systems that plan what goes on the aircraft.",
+      "The same menus appear on the airindia.com booking page, where travellers choose a meal preference as they book. Because the catering team has checked every item, what a passenger picks is what the kitchen can serve.",
     ],
   },
   {
     slug: "event-driven-airline-apis",
     date: "2025",
-    title: "Event-driven airline APIs",
-    dek: "Passenger, payment, and ops events have to land in order.",
+    title: "Airline APIs that can't drop a message",
+    dek: "Passenger, payment, and operations updates have to arrive in order, and only once.",
     body: [
-      "A lot of airline work is events. A passenger change, a payment, an operational notice. Other systems need those in order, and they need them once.",
-      "That is the other half of my job at Air India: OCN handling, passenger and payment APIs, retries, logs.",
-      "WhatsOnMyAI sits next to that, not on top of a mess. A messy contract just gets copied into the agent.",
+      "A lot of airline software is really about updates: a passenger changes a booking, a payment clears, a flight's status changes. Other systems need to hear about each one, in the right order, exactly once.",
+      "That's the other half of my job at Air India: the APIs for passenger and payment updates and for operational notifications (OCN), with retries and logging so nothing goes missing quietly.",
+      "It's also why WhatsOnMyAI works. AI is only as reliable as the data and systems around it. Get those right first, and the AI has something solid to stand on.",
     ],
   },
   {
@@ -176,9 +177,11 @@ export const experience = [
     org: "Air India",
     role: "Lead Engineer",
     bullets: [
-      "WhatsOnMyAI: meal-card PDFs to structured menus for F&B, with a HITL review portal.",
-      "Multi-model agentic LLM workflows. Node.js, TypeScript, PostgreSQL, React.",
-      "OCN event handling, passenger APIs, payment event processing. Mentoring.",
+      "Designed and built WhatsOnMyAI, which uses AI to turn inflight meal-card PDFs into menu data for the Food & Beverage team, replacing manual data entry.",
+      "Added a review portal so catering experts check and approve every AI result before it goes live.",
+      "Connected those menus to the airindia.com booking page, so passengers can see what is served and choose a meal preference while booking.",
+      "Lead the APIs behind passenger updates, payments, and operational notifications (OCN), built for high volumes and to never lose a message.",
+      "Mentor junior and mid-level engineers and run design and code reviews with teams across the airline.",
     ],
   },
   {
@@ -186,9 +189,11 @@ export const experience = [
     org: "Phases India Technology Solutions",
     role: "Senior Software Engineer",
     bullets: [
-      "Led a team of five on Node.js and TypeScript services. Kafka, RabbitMQ, Redis.",
-      "Dataraven (Podio + e-conomic backups). Concur SDK, BIG.DK, PFC including a React Native app. QuickBooks, HubSpot to BigQuery.",
-      "Terraform on AWS (~60% faster provisioning). ELK (~50% faster incident resolution). Worker threads (~60% faster API responses).",
+      "Led a team of five engineers building backend services for SaaS products and enterprise clients.",
+      "Made slow APIs about 60% faster by moving heavy work off the request path.",
+      "Cut cloud setup time by over 60% by automating infrastructure on AWS with Terraform.",
+      "Halved the time to fix production issues by bringing logs and monitoring into one place (ELK).",
+      "Built Dataraven, a backup service for Podio and e-conomic, and integrations with SAP Concur, Azure AD, HubSpot, and QuickBooks.",
     ],
   },
   {
@@ -196,37 +201,37 @@ export const experience = [
     org: "Unieke Software Solutions",
     role: "Junior Software Engineer",
     bullets: [
-      "Built a matrimonial product: admin portal, real-time chat, PWA, OAuth 2.0.",
-      "Built a static website.",
-      "Contributed to UniekeCare, a healthcare product for care homes in the UK.",
+      "Full-stack developer on consumer web apps with Laravel and Vue.js.",
+      "Built a matrimonial platform with real-time chat, profile search, an admin dashboard, secure sign-in, and an installable mobile web app.",
+      "Contributed to UniekeCare, software for care homes in the UK.",
     ],
   },
 ] as const;
 
 export const capabilities = [
   {
-    title: "Agentic AI",
-    body: "WhatsOnMyAI at Air India. Multi-model LLM workflows, HITL review, structured output.",
+    title: "Applied AI",
+    body: "AI workflows that do real work, with people reviewing the output. WhatsOnMyAI at Air India.",
   },
   {
     title: "APIs & backends",
-    body: "REST, GraphQL, NestJS, SDKs. OCN, passenger, payment. Concur, Azure AD, HubSpot.",
+    body: "REST and GraphQL APIs, NestJS, client SDKs. Passenger and payment systems at Air India.",
   },
   {
-    title: "Distributed systems",
-    body: "Kafka, RabbitMQ, Redis, BullMQ. High-volume transactional work.",
+    title: "Reliable systems",
+    body: "Queues and event streams (Kafka, RabbitMQ, Redis) for high-volume work that can't be lost.",
   },
   {
     title: "Cloud & delivery",
-    body: "AWS, GCP, Kubernetes, Docker, Terraform, GitLab CI.",
+    body: "AWS, GCP, Kubernetes, Docker, Terraform, GitLab CI. Repeatable setups and safe deploys.",
   },
   {
     title: "Observability",
-    body: "ELK, Prometheus, Grafana. Logging that actually shortens incidents.",
+    body: "ELK, Prometheus, Grafana. Logging and alerts that halve the time to fix problems.",
   },
   {
     title: "Security",
-    body: "OAuth 2.0, CVE monitoring. Hackathon CVE alert system, 2nd place.",
+    body: "OAuth 2.0, secure APIs, vulnerability monitoring. Hackathon CVE alert system, 2nd place.",
   },
 ] as const;
 
@@ -259,8 +264,8 @@ export const openSource = [
 ] as const;
 
 export const about = {
-  p1: "I'm a lead engineer in Kochi with eight years on backends. At Air India I built WhatsOnMyAI — meal-card PDFs to structured F&B data, with a human in the loop — and I lead event-driven APIs for passenger, payment, and operational events.",
-  p2: "I started as a junior at Unieke: a matrimonial product (admin portal, real-time chat, PWA), a static site, and UniekeCare — healthcare for UK care homes. Then five and a half years at Phases. Led a team of five. Dataraven, a Concur SDK, BIG.DK, PFC, HubSpot to BigQuery.",
+  p1: "I'm a lead engineer in Kochi with eight years building backend systems. At Air India I designed and built WhatsOnMyAI, which turns meal-card PDFs into checked menu data for the catering team and lets passengers choose their meal on the booking page. I also lead the APIs that carry passenger, payment, and operational updates across the airline.",
+  p2: "Before that I spent five and a half years at Phases, leading a team of five. We built Dataraven, a backup service for Podio and e-conomic, and connected business systems like SAP Concur, Azure AD, HubSpot, and BigQuery for clients including BIG.DK and PFC. I started at Unieke as a full-stack developer, building a matrimonial platform and working on UniekeCare for UK care homes.",
   p3: "Outside work I am going through Linux From Scratch, learning Lisp, and reading about security. BSc Computer Science, Kerala University, 2014 to 2017.",
 };
 
@@ -271,7 +276,7 @@ export const education = {
 };
 
 export const award = {
-  title: "2nd place — Phases AI Hackathon 2024",
+  title: "2nd place, Phases AI Hackathon 2024",
   detail: "CVE Alert System, solo, 24 hours.",
 };
 
@@ -323,6 +328,7 @@ export const jsonLd = {
     name: "Kerala University",
   },
   knowsAbout: [
+    "Applied AI",
     "Agentic AI",
     "TypeScript",
     "Node.js",
