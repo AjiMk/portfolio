@@ -2,19 +2,19 @@
 @import "tw-animate-css";
 
 @theme {
-  --color-background: #f3ead8;
-  --color-foreground: #1c1610;
-  --color-card: #eadcc4;
-  --color-muted: #e0d0b4;
-  --color-muted-foreground: #6b5a45;
-  --color-primary: #3f4a28;
-  --color-primary-foreground: #f3ead8;
-  --color-secondary: #e0d0b4;
-  --color-secondary-foreground: #1c1610;
-  --color-accent: #3f4a28;
-  --color-accent-foreground: #f3ead8;
+  --color-background: #e8e2d6;
+  --color-foreground: #1a2222;
+  --color-card: #ddd6c8;
+  --color-muted: #d5cec2;
+  --color-muted-foreground: #4a5552;
+  --color-primary: #1a5c62;
+  --color-primary-foreground: #f4efe6;
+  --color-secondary: #d5cec2;
+  --color-secondary-foreground: #1a2222;
+  --color-accent: #1a5c62;
+  --color-accent-foreground: #f4efe6;
   --color-border: color-mix(in oklab, var(--color-foreground) 12%, transparent);
-  --color-ring: #3f4a28;
+  --color-ring: #1a5c62;
   --color-input: color-mix(in oklab, var(--color-foreground) 16%, transparent);
 
   --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
@@ -56,19 +56,19 @@
 
 .dark {
   color-scheme: dark;
-  --color-background: #16120e;
-  --color-foreground: #f0e4d0;
-  --color-card: #221c16;
-  --color-muted: #2c241c;
-  --color-muted-foreground: #b8a58c;
-  --color-primary: #9aaa6a;
-  --color-primary-foreground: #16120e;
-  --color-secondary: #2c241c;
-  --color-secondary-foreground: #f0e4d0;
-  --color-accent: #9aaa6a;
-  --color-accent-foreground: #16120e;
+  --color-background: #101816;
+  --color-foreground: #e7e1d6;
+  --color-card: #1a2424;
+  --color-muted: #24302e;
+  --color-muted-foreground: #a8b4ae;
+  --color-primary: #7eb8b0;
+  --color-primary-foreground: #101816;
+  --color-secondary: #24302e;
+  --color-secondary-foreground: #e7e1d6;
+  --color-accent: #7eb8b0;
+  --color-accent-foreground: #101816;
   --color-border: color-mix(in oklab, var(--color-foreground) 15%, transparent);
-  --color-ring: #9aaa6a;
+  --color-ring: #7eb8b0;
   --color-input: color-mix(in oklab, var(--color-foreground) 20%, transparent);
 
   --shadow-border:
@@ -83,19 +83,19 @@
 @media (prefers-color-scheme: dark) {
   :root:not(.light) {
     color-scheme: dark;
-    --color-background: #16120e;
-    --color-foreground: #f0e4d0;
-    --color-card: #221c16;
-    --color-muted: #2c241c;
-    --color-muted-foreground: #b8a58c;
-    --color-primary: #9aaa6a;
-    --color-primary-foreground: #16120e;
-    --color-secondary: #2c241c;
-    --color-secondary-foreground: #f0e4d0;
-    --color-accent: #9aaa6a;
-    --color-accent-foreground: #16120e;
+    --color-background: #101816;
+    --color-foreground: #e7e1d6;
+    --color-card: #1a2424;
+    --color-muted: #24302e;
+    --color-muted-foreground: #a8b4ae;
+    --color-primary: #7eb8b0;
+    --color-primary-foreground: #101816;
+    --color-secondary: #24302e;
+    --color-secondary-foreground: #e7e1d6;
+    --color-accent: #7eb8b0;
+    --color-accent-foreground: #101816;
     --color-border: color-mix(in oklab, var(--color-foreground) 15%, transparent);
-    --color-ring: #9aaa6a;
+    --color-ring: #7eb8b0;
     --color-input: color-mix(in oklab, var(--color-foreground) 20%, transparent);
 
     --shadow-border:
