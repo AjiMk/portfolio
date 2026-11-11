@@ -32,6 +32,11 @@ export function ThemeToggle({ className }: { className?: string }) {
     if (metaColorScheme) {
       metaColorScheme.setAttribute("content", nextTheme);
     }
+
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    if (metaTheme) {
+      metaTheme.setAttribute("content", nextTheme === "dark" ? "#101816" : "#e8e2d6");
+    }
   }
 
   if (!mounted) {
