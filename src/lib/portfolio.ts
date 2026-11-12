@@ -11,8 +11,14 @@ export const profile = {
   cv: "/ajay-kumar-m.pdf",
   availability: "Air India · Kochi",
   headline: "I build reliable web applications and backend systems.",
-  lede: "I design and develop practical software solutions, from web applications and APIs to integrations and e-commerce platforms. My focus is on clean architecture, maintainable code, and solving real business problems.",
-  focus: ["Web Development", "Backend Engineering", "API Development", "System Integration"],
+  lede: "I design and develop practical software solutions, from web applications and APIs to integrations, e-commerce platforms and agentic AI workflows. My focus is on clean architecture, maintainable code, and solving real business problems.",
+  focus: [
+    "Web Development",
+    "Backend Engineering",
+    "AI Agent Workflows",
+    "API Development",
+    "System Integration",
+  ],
 } as const;
 
 export const stats = [
@@ -31,6 +37,11 @@ export const nav = [
 ] as const;
 
 export const services = [
+  {
+    title: "AI & Agentic Workflows",
+    body: "Setting up agentic AI workflows that take over repetitive manual work: multi-model LLM pipelines, structured data extraction, and human-in-the-loop review so people approve what the AI produces before it is used.",
+    evidence: "WhatsOnMyAI at Air India",
+  },
   {
     title: "Custom Web Applications",
     body: "Building responsive, user-focused web applications tailored to business requirements, with maintainable architecture and reliable functionality.",
@@ -57,11 +68,24 @@ export const expertise = [
   { category: "Backend", items: ["Node.js", "TypeScript", "NestJS", "PHP", "Laravel", "Python"] },
   { category: "Frontend", items: ["JavaScript", "TypeScript", "React", "React Native", "Vue.js"] },
   { category: "CMS & E-commerce", items: ["WordPress", "WooCommerce"] },
+  {
+    category: "AI & Agents",
+    items: [
+      "Agentic LLM workflows",
+      "Multi-model pipelines",
+      "Structured extraction",
+      "Human-in-the-loop review",
+      "n8n",
+    ],
+  },
   { category: "Databases", items: ["PostgreSQL", "MySQL", "MongoDB", "Redis"] },
   { category: "API & Integration", items: ["REST APIs", "GraphQL", "OAuth 2.0", "SDK design"] },
   { category: "Messaging", items: ["Kafka", "RabbitMQ", "BullMQ"] },
-  { category: "Cloud & DevOps", items: ["AWS", "GCP", "Docker", "Kubernetes", "Terraform", "GitLab CI"] },
-  { category: "Tools & Observability", items: ["Git", "n8n", "ELK", "Prometheus", "Grafana"] },
+  {
+    category: "Cloud & DevOps",
+    items: ["AWS", "GCP", "Docker", "Kubernetes", "Terraform", "GitLab CI"],
+  },
+  { category: "Tools & Observability", items: ["Git", "ELK", "Prometheus", "Grafana"] },
 ] as const;
 
 export type Project = {
@@ -118,8 +142,7 @@ export const projects: Project[] = [
       "A distributed backup platform: BullMQ and Redis queue the jobs, Node.js worker threads take CPU-heavy compression and serialisation off the main thread, and microservices run on Kubernetes in AWS. Stream buffering and memory use were tuned for large payloads, and operators get dashboards, monitoring, alerting and usage tracking.",
     contribution:
       "Designed and developed the backend as part of the Phases team: job queueing, worker threads, Kubernetes microservices, and the monitoring and dashboards.",
-    outcome:
-      "Backups run concurrently at scale, with real-time visibility into every job.",
+    outcome: "Backups run concurrently at scale, with real-time visibility into every job.",
     image: "/images/dataraven.jpg",
     imageAlt: "Quiet bare-metal server room",
     tags: ["Node.js", "BullMQ", "Redis", "Kubernetes", "AWS"],
@@ -267,10 +290,7 @@ export const jsonLd = {
   email: "mailto:ajimk@proton.me",
   telephone: "+919895827488",
   url: "https://github.com/AjiMk/portfolio",
-  sameAs: [
-    "https://github.com/AjiMk",
-    "https://www.linkedin.com/in/ajay-kumar-87a708223/",
-  ],
+  sameAs: ["https://github.com/AjiMk", "https://www.linkedin.com/in/ajay-kumar-87a708223/"],
   alumniOf: {
     "@type": "CollegeOrUniversity",
     name: "Kerala University",
@@ -283,6 +303,9 @@ export const jsonLd = {
     "WordPress",
     "WooCommerce",
     "Agentic AI",
+    "AI workflow automation",
+    "LLM integration",
+    "Human-in-the-loop AI",
     "TypeScript",
     "Node.js",
     "event-driven architecture",

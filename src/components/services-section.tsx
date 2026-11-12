@@ -15,7 +15,10 @@ export function ServicesSection() {
 
         <ul className="grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2">
           {services.map((service, index) => (
-            <li key={service.title} className="flex flex-col bg-background p-6 sm:p-8">
+            <li
+              key={service.title}
+              className={`flex flex-col bg-background p-6 sm:p-8 ${index === 0 ? "sm:col-span-2" : ""}`}
+            >
               <p className="font-mono text-xs text-muted-foreground">
                 {String(index + 1).padStart(2, "0")}
               </p>
