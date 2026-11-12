@@ -4,9 +4,9 @@ import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import { jsonLd } from "@/lib/portfolio";
 import appCss from "../styles.css?url";
 
-const APP_NAME = "Ajay Kumar M — Lead Engineer";
+const APP_NAME = "Ajay Kumar M — Software Engineer";
 const APP_DESCRIPTION =
-  "Lead engineer at Air India. WhatsOnMyAI — agentic meal-card parsing with HITL — plus event-driven APIs. Eight years of Node.js and TypeScript. Kochi, India.";
+  "Software engineer focused on web applications, backend systems and integrations. Eight years building APIs, e-commerce platforms and agentic AI workflows, currently lead engineer at Air India. Kochi, India.";
 
 export const Route = createRootRoute({
   head: () => ({

@@ -16,8 +16,7 @@ const categories = [
   {
     id: "ai",
     label: "AI & Agents",
-    match: (p: Project) =>
-      p.tags.some((t) => /ai|agentic|hitl/i.test(t)),
+    match: (p: Project) => p.tags.some((t) => /ai|agentic|hitl/i.test(t)),
   },
   {
     id: "event-driven",
@@ -32,9 +31,17 @@ const categories = [
     label: "Integrations & Mobile",
     match: (p: Project) =>
       p.tags.some((t) =>
-        ["sap concur", "azure ad", "hubspot", "gcp", "sdk", "podio", "react native", "graphql"].includes(
-          t.toLowerCase(),
-        ),
+        [
+          "php",
+          "sap concur",
+          "azure ad",
+          "hubspot",
+          "gcp",
+          "sdk",
+          "podio",
+          "react native",
+          "graphql",
+        ].includes(t.toLowerCase()),
       ),
   },
 ] as const;
@@ -125,11 +132,15 @@ export function WorkSection() {
             Selected work
           </p>
           <h2 className="mt-2 font-display text-display font-medium tracking-tight">
-            Backend systems I have shipped
+            Projects and the problems behind them
           </h2>
+          <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
+            A selection of projects demonstrating my experience in application development,
+            integrations, and software engineering.
+          </p>
         </div>
-        <p className="max-w-sm text-sm text-muted-foreground">
-          WhatsOnMyAI at Air India, Dataraven backups, B2B integrations, PFC on Podio and React Native.
+        <p className="max-w-xs text-sm text-muted-foreground">
+          Open a project to see the challenge, the technical decisions, and the solution.
         </p>
       </header>
 
@@ -156,9 +167,7 @@ export function WorkSection() {
       </div>
 
       <div className="flex flex-col gap-16">
-        {featured ? (
-          <ProjectCard project={featured} featured onOpen={setSelected} />
-        ) : null}
+        {featured ? <ProjectCard project={featured} featured onOpen={setSelected} /> : null}
         {rest.length > 0 ? (
           <div className="grid gap-10 md:grid-cols-3">
             {rest.map((project) => (
@@ -187,17 +196,20 @@ export function WorkSection() {
                 <DialogDescription>{selected.summary}</DialogDescription>
               </DialogHeader>
               <div className="space-y-5 px-4 pb-5">
-                <p className="whitespace-pre-line text-sm leading-relaxed text-foreground">
-                  {selected.description}
-                </p>
-                <Separator />
-                <dl className="grid grid-cols-3 gap-3">
-                  {selected.outcomes.map((outcome) => (
-                    <div key={outcome.label} className="rounded-md bg-card px-3 py-3">
-                      <dt className="font-mono text-xs text-muted-foreground">{outcome.label}</dt>
-                      <dd className="mt-1 font-display text-xl tracking-tight tabular-nums">
-                        {outcome.value}
-                      </dd>
+                <dl className="space-y-5">
+                  {[
+                    { label: "Problem", value: selected.problem },
+                    { label: "Solution", value: selected.solution },
+                    { label: "Contribution", value: selected.contribution },
+                    { label: "Technology", value: selected.tags.join(" · ") },
+                    { label: "Outcome", value: selected.outcome },
+                  ].map((row, index) => (
+                    <div key={row.label}>
+                      {index > 0 ? <Separator className="mb-5" /> : null}
+                      <dt className="font-mono text-xs tracking-widest text-muted-foreground uppercase">
+                        {row.label}
+                      </dt>
+                      <dd className="mt-2 text-sm leading-relaxed text-foreground">{row.value}</dd>
                     </div>
                   ))}
                 </dl>

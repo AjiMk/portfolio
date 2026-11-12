@@ -2,11 +2,12 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Toaster } from "sonner";
 import { AboutSection } from "@/components/about-section";
 import { ContactSection } from "@/components/contact-section";
+import { ExpertiseSection } from "@/components/expertise-section";
 import { Hero } from "@/components/hero";
+import { ServicesSection } from "@/components/services-section";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { WorkSection } from "@/components/work-section";
-import { WritingSection } from "@/components/writing-section";
 
 export const Route = createFileRoute("/")({ component: Home });
 
@@ -16,8 +17,9 @@ function Home() {
       <SiteHeader />
       <main>
         <Hero />
+        <ServicesSection />
         <WorkSection />
-        <WritingSection />
+        <ExpertiseSection />
         <AboutSection />
         <ContactSection />
       </main>

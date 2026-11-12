@@ -88,10 +88,11 @@ export function ContactSection() {
             Contact
           </p>
           <h2 className="mt-2 font-display text-display font-medium tracking-tight">
-            Contact
+            Let's build something useful.
           </h2>
           <p className="mt-4 max-w-md text-base leading-relaxed text-muted-foreground">
-            {profile.availabilityDetail}
+            Have a project in mind or a technical challenge to solve? Let's discuss your
+            requirements and find the right approach.
           </p>
 
           <div className="mt-8 flex flex-col gap-1">
@@ -253,7 +254,7 @@ export function ContactSection() {
             </div>
 
             <Button type="submit" className="mt-6 w-full sm:w-auto">
-              Send note
+              Get in touch
             </Button>
           </form>
         )}
