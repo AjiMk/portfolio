@@ -11,8 +11,14 @@ export const profile = {
   cv: "/ajay-kumar-m.pdf",
   availability: "Air India · Kochi",
   headline: "I build reliable web applications and backend systems.",
-  lede: "I design and develop practical software solutions, from web applications and APIs to integrations and e-commerce platforms. My focus is on clean architecture, maintainable code, and solving real business problems.",
-  focus: ["Web Development", "Backend Engineering", "API Development", "System Integration"],
+  lede: "I design and develop practical software solutions, from web applications and APIs to integrations, e-commerce platforms and agentic AI workflows. My focus is on clean architecture, maintainable code, and solving real business problems.",
+  focus: [
+    "Web Development",
+    "Backend Engineering",
+    "AI Agent Workflows",
+    "API Development",
+    "System Integration",
+  ],
 } as const;
 
 export const stats = [
@@ -31,6 +37,38 @@ export const nav = [
 ] as const;
 
 export const services = [
+  {
+    title: "AI & Agentic Workflows",
+    body: "Designing and building LLM-powered systems that reason, retrieve and act: from retrieval-augmented assistants to multi-agent workflows that automate complex, multi-step business processes. I choose the architecture to fit the problem, and build in the evaluation, guardrails and human oversight needed to run it reliably in production.",
+    details: [
+      {
+        title: "Agent orchestration",
+        body: "Stateful agent graphs in LangGraph with conditional routing, checkpointed state, retries and branching. Supervisor, router and planner–executor patterns for multi-agent systems.",
+      },
+      {
+        title: "Retrieval-augmented generation",
+        body: "Ingestion and chunking pipelines, embeddings and vector search, hybrid retrieval and re-ranking, with answers grounded in, and cited back to, source documents.",
+      },
+      {
+        title: "Multi-model pipelines",
+        body: "Routing each step to the model that fits it on capability, latency and cost, combining vision and language models, and cross-checking outputs between models.",
+      },
+      {
+        title: "Tools & structured output",
+        body: "LangChain tool and function calling against internal APIs and databases, with schema-validated outputs that downstream systems can trust.",
+      },
+      {
+        title: "Human-in-the-loop",
+        body: "Approval checkpoints that pause a workflow for review and resume it after, with review interfaces and an audit trail of every decision.",
+      },
+      {
+        title: "Production readiness",
+        body: "Evaluation sets, tracing and observability, guardrails, fallbacks between models, and token and cost monitoring.",
+      },
+    ],
+    evidence:
+      "LangChain · LangGraph · RAG · Multi-agent · Python · TypeScript · In production: WhatsOnMyAI at Air India",
+  },
   {
     title: "Custom Web Applications",
     body: "Building responsive, user-focused web applications tailored to business requirements, with maintainable architecture and reliable functionality.",
@@ -57,11 +95,29 @@ export const expertise = [
   { category: "Backend", items: ["Node.js", "TypeScript", "NestJS", "PHP", "Laravel", "Python"] },
   { category: "Frontend", items: ["JavaScript", "TypeScript", "React", "React Native", "Vue.js"] },
   { category: "CMS & E-commerce", items: ["WordPress", "WooCommerce"] },
+  {
+    category: "AI & Agents",
+    items: [
+      "LangChain",
+      "LangGraph",
+      "RAG",
+      "Multi-agent orchestration",
+      "Multi-model pipelines",
+      "Tool calling",
+      "Vector search",
+      "Structured outputs",
+      "Human-in-the-loop",
+      "n8n",
+    ],
+  },
   { category: "Databases", items: ["PostgreSQL", "MySQL", "MongoDB", "Redis"] },
   { category: "API & Integration", items: ["REST APIs", "GraphQL", "OAuth 2.0", "SDK design"] },
   { category: "Messaging", items: ["Kafka", "RabbitMQ", "BullMQ"] },
-  { category: "Cloud & DevOps", items: ["AWS", "GCP", "Docker", "Kubernetes", "Terraform", "GitLab CI"] },
-  { category: "Tools & Observability", items: ["Git", "n8n", "ELK", "Prometheus", "Grafana"] },
+  {
+    category: "Cloud & DevOps",
+    items: ["AWS", "GCP", "Docker", "Kubernetes", "Terraform", "GitLab CI"],
+  },
+  { category: "Tools & Observability", items: ["Git", "ELK", "Prometheus", "Grafana"] },
 ] as const;
 
 export type Project = {
@@ -118,8 +174,7 @@ export const projects: Project[] = [
       "A distributed backup platform: BullMQ and Redis queue the jobs, Node.js worker threads take CPU-heavy compression and serialisation off the main thread, and microservices run on Kubernetes in AWS. Stream buffering and memory use were tuned for large payloads, and operators get dashboards, monitoring, alerting and usage tracking.",
     contribution:
       "Designed and developed the backend as part of the Phases team: job queueing, worker threads, Kubernetes microservices, and the monitoring and dashboards.",
-    outcome:
-      "Backups run concurrently at scale, with real-time visibility into every job.",
+    outcome: "Backups run concurrently at scale, with real-time visibility into every job.",
     image: "/images/dataraven.jpg",
     imageAlt: "Quiet bare-metal server room",
     tags: ["Node.js", "BullMQ", "Redis", "Kubernetes", "AWS"],
@@ -267,10 +322,7 @@ export const jsonLd = {
   email: "mailto:ajimk@proton.me",
   telephone: "+919895827488",
   url: "https://github.com/AjiMk/portfolio",
-  sameAs: [
-    "https://github.com/AjiMk",
-    "https://www.linkedin.com/in/ajay-kumar-87a708223/",
-  ],
+  sameAs: ["https://github.com/AjiMk", "https://www.linkedin.com/in/ajay-kumar-87a708223/"],
   alumniOf: {
     "@type": "CollegeOrUniversity",
     name: "Kerala University",
@@ -283,6 +335,13 @@ export const jsonLd = {
     "WordPress",
     "WooCommerce",
     "Agentic AI",
+    "AI workflow automation",
+    "LLM integration",
+    "LangChain",
+    "LangGraph",
+    "Retrieval-augmented generation",
+    "Multi-agent systems",
+    "Human-in-the-loop AI",
     "TypeScript",
     "Node.js",
     "event-driven architecture",
