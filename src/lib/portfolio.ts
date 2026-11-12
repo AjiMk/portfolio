@@ -39,8 +39,35 @@ export const nav = [
 export const services = [
   {
     title: "AI & Agentic Workflows",
-    body: "Setting up agentic AI workflows that take over repetitive manual work: multi-model LLM pipelines, structured data extraction, and human-in-the-loop review so people approve what the AI produces before it is used.",
-    evidence: "WhatsOnMyAI at Air India",
+    body: "Designing and building LLM-powered systems that reason, retrieve and act: from retrieval-augmented assistants to multi-agent workflows that automate complex, multi-step business processes. I choose the architecture to fit the problem, and build in the evaluation, guardrails and human oversight needed to run it reliably in production.",
+    details: [
+      {
+        title: "Agent orchestration",
+        body: "Stateful agent graphs in LangGraph with conditional routing, checkpointed state, retries and branching. Supervisor, router and planner–executor patterns for multi-agent systems.",
+      },
+      {
+        title: "Retrieval-augmented generation",
+        body: "Ingestion and chunking pipelines, embeddings and vector search, hybrid retrieval and re-ranking, with answers grounded in, and cited back to, source documents.",
+      },
+      {
+        title: "Multi-model pipelines",
+        body: "Routing each step to the model that fits it on capability, latency and cost, combining vision and language models, and cross-checking outputs between models.",
+      },
+      {
+        title: "Tools & structured output",
+        body: "LangChain tool and function calling against internal APIs and databases, with schema-validated outputs that downstream systems can trust.",
+      },
+      {
+        title: "Human-in-the-loop",
+        body: "Approval checkpoints that pause a workflow for review and resume it after, with review interfaces and an audit trail of every decision.",
+      },
+      {
+        title: "Production readiness",
+        body: "Evaluation sets, tracing and observability, guardrails, fallbacks between models, and token and cost monitoring.",
+      },
+    ],
+    evidence:
+      "LangChain · LangGraph · RAG · Multi-agent · Python · TypeScript · In production: WhatsOnMyAI at Air India",
   },
   {
     title: "Custom Web Applications",
@@ -71,10 +98,15 @@ export const expertise = [
   {
     category: "AI & Agents",
     items: [
-      "Agentic LLM workflows",
+      "LangChain",
+      "LangGraph",
+      "RAG",
+      "Multi-agent orchestration",
       "Multi-model pipelines",
-      "Structured extraction",
-      "Human-in-the-loop review",
+      "Tool calling",
+      "Vector search",
+      "Structured outputs",
+      "Human-in-the-loop",
       "n8n",
     ],
   },
@@ -305,6 +337,10 @@ export const jsonLd = {
     "Agentic AI",
     "AI workflow automation",
     "LLM integration",
+    "LangChain",
+    "LangGraph",
+    "Retrieval-augmented generation",
+    "Multi-agent systems",
     "Human-in-the-loop AI",
     "TypeScript",
     "Node.js",

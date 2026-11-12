@@ -25,9 +25,21 @@ export function ServicesSection() {
               <h3 className="mt-3 font-display text-2xl font-medium tracking-tight">
                 {service.title}
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
+              <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
                 {service.body}
               </p>
+              {"details" in service ? (
+                <ul className="mt-6 grid gap-x-8 gap-y-5 border-t border-border pt-6 sm:grid-cols-2 lg:grid-cols-3">
+                  {service.details.map((detail) => (
+                    <li key={detail.title}>
+                      <p className="font-medium text-foreground">{detail.title}</p>
+                      <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                        {detail.body}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
               <p className="mt-auto pt-5 font-mono text-xs text-muted-foreground">
                 {service.evidence}
               </p>
