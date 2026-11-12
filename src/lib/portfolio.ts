@@ -16,10 +16,10 @@ export const profile = {
 } as const;
 
 export const stats = [
-  { value: "8+", label: "Years" },
+  { value: "8+", label: "Years building" },
   { value: "5", label: "Engineers led" },
   { value: "60%", label: "Faster APIs" },
-  { value: "50%", label: "Faster incidents" },
+  { value: "50%", label: "Faster issue fixes" },
 ] as const;
 
 export const nav = [
@@ -88,7 +88,7 @@ export const projects: Project[] = [
     index: "01",
     title: "WhatsOnMyAI",
     year: "2025 —",
-    role: "Lead Engineer, Air India",
+    role: "Lead Engineer · Air India",
     summary:
       "Turns airline meal-card PDFs into verified, structured menu data, with domain experts approving every extraction before it is published.",
     problem:
@@ -109,7 +109,7 @@ export const projects: Project[] = [
     index: "02",
     title: "Dataraven",
     year: "2019 — 2024",
-    role: "Team · Phases",
+    role: "Senior Software Engineer · Phases",
     summary:
       "Automated backup and archival platform for Podio and e-conomic data, built to handle high volumes without memory spikes.",
     problem:
@@ -127,9 +127,9 @@ export const projects: Project[] = [
   {
     slug: "big-dk",
     index: "03",
-    title: "B2B API integrations",
+    title: "Business system integrations",
     year: "2019 — 2024",
-    role: "Individual contributor · Phases",
+    role: "Senior Software Engineer · Phases",
     summary:
       "Integrations connecting expense, identity, ERP, CRM and legacy systems, including a reusable SAP Concur SDK.",
     problem:
@@ -149,7 +149,7 @@ export const projects: Project[] = [
     index: "04",
     title: "PFC",
     year: "2019 — 2024",
-    role: "Individual contributor · Phases",
+    role: "Senior Software Engineer · Phases",
     summary:
       "Workflow automation on Podio and a React Native app that gives a recycling company's field staff the same data as the office.",
     problem:
@@ -172,9 +172,11 @@ export const experience = [
     org: "Air India",
     role: "Lead Engineer",
     bullets: [
-      "WhatsOnMyAI: meal-card PDFs to structured menus for F&B, with a HITL review portal.",
-      "Multi-model agentic LLM workflows. Node.js, TypeScript, PostgreSQL, React.",
-      "OCN event handling, passenger APIs, payment event processing. Mentoring.",
+      "Designed and built WhatsOnMyAI, which uses AI to turn inflight meal-card PDFs into menu data for the Food & Beverage team, replacing manual data entry.",
+      "Added a review portal so catering experts check and approve every AI result before it goes live.",
+      "Connected those menus to the airindia.com booking page, so passengers can see what is served and choose a meal preference while booking.",
+      "Lead the APIs behind passenger updates, payments, and operational notifications (OCN), built for high volumes and to never lose a message.",
+      "Mentor junior and mid-level engineers and run design and code reviews with teams across the airline.",
     ],
   },
   {
@@ -182,9 +184,11 @@ export const experience = [
     org: "Phases India Technology Solutions",
     role: "Senior Software Engineer",
     bullets: [
-      "Led a team of five on Node.js and TypeScript services. Kafka, RabbitMQ, Redis.",
-      "Dataraven (Podio + e-conomic backups). Concur SDK, BIG.DK, PFC including a React Native app. QuickBooks, HubSpot to BigQuery.",
-      "Terraform on AWS (~60% faster provisioning). ELK (~50% faster incident resolution). Worker threads (~60% faster API responses).",
+      "Led a team of five engineers building backend services for SaaS products and enterprise clients.",
+      "Made slow APIs about 60% faster by moving heavy work off the request path.",
+      "Cut cloud setup time by over 60% by automating infrastructure on AWS with Terraform.",
+      "Halved the time to fix production issues by bringing logs and monitoring into one place (ELK).",
+      "Built Dataraven, a backup service for Podio and e-conomic, and integrations with SAP Concur, Azure AD, HubSpot, and QuickBooks.",
     ],
   },
   {
@@ -192,9 +196,9 @@ export const experience = [
     org: "Unieke Software Solutions",
     role: "Junior Software Engineer",
     bullets: [
-      "Built a matrimonial product: admin portal, real-time chat, PWA, OAuth 2.0.",
-      "Built a static website.",
-      "Contributed to UniekeCare, a healthcare product for care homes in the UK.",
+      "Full-stack developer on consumer web apps with Laravel and Vue.js.",
+      "Built a matrimonial platform with real-time chat, profile search, an admin dashboard, secure sign-in, and an installable mobile web app.",
+      "Contributed to UniekeCare, software for care homes in the UK.",
     ],
   },
 ] as const;
@@ -241,7 +245,7 @@ export const education = {
 };
 
 export const award = {
-  title: "2nd place — Phases AI Hackathon 2024",
+  title: "2nd place, Phases AI Hackathon 2024",
   detail: "CVE Alert System, solo, 24 hours.",
 };
 

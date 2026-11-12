@@ -76,7 +76,7 @@ export function ContactSection() {
       toast.success("Email copied");
       window.setTimeout(() => setCopied(false), 1800);
     } catch {
-      toast.error("Could not copy — use the address instead.");
+      toast.error("Could not copy. Use the address instead.");
     }
   }
 

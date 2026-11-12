@@ -16,7 +16,7 @@ export const Route = createRootRoute({
       { title: APP_NAME },
       { name: "description", content: APP_DESCRIPTION },
       { name: "color-scheme", content: "light dark" },
-      { name: "theme-color", content: "#f3ead8" },
+      { name: "theme-color", content: "#e8e2d6" },
       { property: "og:title", content: APP_NAME },
       { property: "og:description", content: APP_DESCRIPTION },
       { property: "og:image", content: "/og.jpg" },
@@ -40,7 +40,7 @@ export const Route = createRootRoute({
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem("theme");var isDark=t==="dark"||(!t&&window.matchMedia("(prefers-color-scheme: dark)").matches);if(isDark){document.documentElement.classList.add("dark");document.documentElement.classList.remove("light");}else{document.documentElement.classList.remove("dark");document.documentElement.classList.add("light");}}catch(e){}})();`,
+            __html: `(function(){try{var t=localStorage.getItem("theme");var isDark=t==="dark"||(!t&&window.matchMedia("(prefers-color-scheme: dark)").matches);if(isDark){document.documentElement.classList.add("dark");document.documentElement.classList.remove("light");}else{document.documentElement.classList.remove("dark");document.documentElement.classList.add("light");}var apply=function(){var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute("content",isDark?"#101816":"#e8e2d6");};apply();document.addEventListener("DOMContentLoaded",apply);}catch(e){}})();`,
           }}
         />
         <HeadContent />
