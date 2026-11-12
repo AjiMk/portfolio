@@ -1,4 +1,4 @@
-import { about, award, capabilities, education, experience, openSource, practice, stack } from "@/lib/portfolio";
+import { about, award, education, experience, openSource, practice } from "@/lib/portfolio";
 import { Separator } from "@/components/ui/separator";
 
 export function AboutSection() {
@@ -8,8 +8,8 @@ export function AboutSection() {
         <p className="font-mono text-eyebrow tracking-[0.18em] text-muted-foreground uppercase">
           About
         </p>
-        <h2 className="mt-2 font-display text-display font-medium tracking-tight">
-          Eight years on backends
+        <h2 className="mt-2 max-w-3xl font-display text-display font-medium tracking-tight">
+          {about.lead}
         </h2>
       </header>
 
@@ -29,16 +29,6 @@ export function AboutSection() {
             <p>{about.p2}</p>
             <p>{about.p3}</p>
           </div>
-          <ul className="mt-6 flex flex-wrap gap-2">
-            {stack.map((item) => (
-              <li
-                key={item}
-                className="rounded-full border border-border bg-card/40 px-3 py-1 font-mono text-xs text-muted-foreground transition-colors duration-200 hover:border-primary/50 hover:bg-primary/10 hover:text-foreground"
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
         </div>
 
         <div className="flex flex-col gap-10">
@@ -113,20 +103,6 @@ export function AboutSection() {
             </h3>
             <ul className="mt-4 grid gap-5">
               {practice.map((item) => (
-                <li key={item.title}>
-                  <p className="font-medium text-foreground">{item.title}</p>
-                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-mono text-xs tracking-[0.18em] text-muted-foreground uppercase">
-              Capabilities
-            </h3>
-            <ul className="mt-4 grid gap-5 sm:grid-cols-2">
-              {capabilities.map((item) => (
                 <li key={item.title}>
                   <p className="font-medium text-foreground">{item.title}</p>
                   <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{item.body}</p>

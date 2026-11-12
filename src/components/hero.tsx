@@ -10,10 +10,10 @@ export function Hero() {
     >
       <div>
         <p className="rise-in font-mono text-eyebrow tracking-[0.18em] text-muted-foreground uppercase">
-          {profile.role} · {profile.location}
+          {profile.name} · {profile.role} · {profile.location}
         </p>
-        <h1 className="rise-in rise-in-1 mt-4 font-display text-hero leading-[0.95] font-medium tracking-[-0.035em] text-foreground">
-          {profile.name}
+        <h1 className="rise-in rise-in-1 mt-4 font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-[1.02] font-medium tracking-[-0.03em] text-balance text-foreground">
+          {profile.headline}
         </h1>
         <p className="rise-in rise-in-2 mt-6 max-w-xl text-lede leading-snug text-muted-foreground">
           {profile.lede}
@@ -21,23 +21,22 @@ export function Hero() {
         <div className="rise-in rise-in-3 mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
           <Button size="lg" asChild>
             <a href="#work">
-              View work
+              Explore my work
               <ArrowDown className="size-4" />
             </a>
           </Button>
           <Button size="lg" variant="outline" asChild>
-            <a href={profile.cv} download>
-              CV
-              <FileDown className="size-4" />
-            </a>
-          </Button>
-          <Button size="lg" variant="outline" asChild>
             <a href="#contact">
-              Contact
+              Discuss a project
               <ArrowUpRight className="size-4" />
             </a>
           </Button>
           <div className="flex items-center gap-1 sm:ml-1">
+            <Button variant="ghost" size="icon" asChild>
+              <a href={profile.cv} download aria-label="Download CV" title="Download CV">
+                <FileDown className="size-4" />
+              </a>
+            </Button>
             <Button variant="ghost" size="icon" asChild>
               <a
                 href={profile.github}
@@ -61,7 +60,8 @@ export function Hero() {
           </div>
         </div>
         <p className="rise-in rise-in-4 mt-8 max-w-md border-t border-border pt-5 font-mono text-xs leading-relaxed text-muted-foreground">
-          Now · {profile.now}
+          <span className="sr-only">Areas of focus: </span>
+          {profile.focus.join(" · ")}
         </p>
         <dl className="rise-in rise-in-4 mt-8 grid grid-cols-2 gap-x-6 gap-y-5 sm:grid-cols-4">
           {stats.map((item) => (

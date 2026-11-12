@@ -1,7 +1,7 @@
 export const profile = {
   name: "Ajay Kumar M",
   shortName: "Ajay",
-  role: "Lead engineer",
+  role: "Software Engineer",
   location: "Kochi, India",
   email: "ajimk@proton.me",
   phone: "+91 9895827488",
@@ -10,10 +10,9 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/ajay-kumar-87a708223/",
   cv: "/ajay-kumar-m.pdf",
   availability: "Air India · Kochi",
-  availabilityDetail:
-    "Lead engineer at Air India in Kochi. Happy to talk about backend roles, API design, applied AI, or security. Email is easiest.",
-  lede: "Lead engineer at Air India, turning slow, manual work into software people can rely on. I created WhatsOnMyAI, the AI platform that reads inflight meal cards and puts the menu in front of passengers as they book. Eight years of building backends with Node.js and TypeScript.",
-  now: "Air India. WhatsOnMyAI, meal choice on the booking page, and passenger and payment APIs.",
+  headline: "I build reliable web applications and backend systems.",
+  lede: "I design and develop practical software solutions, from web applications and APIs to integrations and e-commerce platforms. My focus is on clean architecture, maintainable code, and solving real business problems.",
+  focus: ["Web Development", "Backend Engineering", "API Development", "System Integration"],
 } as const;
 
 export const stats = [
@@ -24,10 +23,45 @@ export const stats = [
 ] as const;
 
 export const nav = [
+  { href: "#services", label: "Services" },
   { href: "#work", label: "Work" },
-  { href: "#notes", label: "Notes" },
+  { href: "#expertise", label: "Expertise" },
   { href: "#about", label: "About" },
   { href: "#contact", label: "Contact" },
+] as const;
+
+export const services = [
+  {
+    title: "Custom Web Applications",
+    body: "Building responsive, user-focused web applications tailored to business requirements, with maintainable architecture and reliable functionality.",
+    evidence: "WhatsOnMyAI review portal · PFC mobile app",
+  },
+  {
+    title: "Backend & API Development",
+    body: "Designing robust backend services, REST APIs, database structures, and integrations that keep applications connected and efficient.",
+    evidence: "Passenger and payment event APIs at Air India · Dataraven",
+  },
+  {
+    title: "E-commerce & CMS Development",
+    body: "Developing and extending WordPress and WooCommerce platforms through custom functionality, plugin development, integrations, and performance optimisation.",
+    evidence: "20+ WordPress and WooCommerce projects",
+  },
+  {
+    title: "System Integration",
+    body: "Connecting applications, APIs, and third-party services to simplify processes and improve how systems work together.",
+    evidence: "SAP Concur SDK · Azure AD · HubSpot to BigQuery",
+  },
+] as const;
+
+export const expertise = [
+  { category: "Backend", items: ["Node.js", "TypeScript", "NestJS", "PHP", "Laravel", "Python"] },
+  { category: "Frontend", items: ["JavaScript", "TypeScript", "React", "React Native", "Vue.js"] },
+  { category: "CMS & E-commerce", items: ["WordPress", "WooCommerce"] },
+  { category: "Databases", items: ["PostgreSQL", "MySQL", "MongoDB", "Redis"] },
+  { category: "API & Integration", items: ["REST APIs", "GraphQL", "OAuth 2.0", "SDK design"] },
+  { category: "Messaging", items: ["Kafka", "RabbitMQ", "BullMQ"] },
+  { category: "Cloud & DevOps", items: ["AWS", "GCP", "Docker", "Kubernetes", "Terraform", "GitLab CI"] },
+  { category: "Tools & Observability", items: ["Git", "n8n", "ELK", "Prometheus", "Grafana"] },
 ] as const;
 
 export type Project = {
@@ -37,11 +71,13 @@ export type Project = {
   year: string;
   role: string;
   summary: string;
-  description: string;
+  problem: string;
+  solution: string;
+  contribution: string;
+  outcome: string;
   image: string;
   imageAlt: string;
   tags: string[];
-  outcomes: { label: string; value: string }[];
   href?: string;
   featured?: boolean;
 };
@@ -54,17 +90,18 @@ export const projects: Project[] = [
     year: "2025 —",
     role: "Lead Engineer · Air India",
     summary:
-      "Air India's menu platform. It reads inflight meal-card PDFs with AI, has the catering team check the result, and puts those menus on the booking page so passengers can choose their meal.",
-    description:
-      "Inflight menus reach Air India's Food & Beverage team as PDF meal cards, covering every route, every cabin and every season. Getting them into the system used to mean typing each one in by hand: slow work, and easy to get wrong.\n\nWhatsOnMyAI does that job. Several AI models work together to read each card's layout, pull out the dishes and details, and save them as clean, structured data. Nothing goes live on the AI's word alone: a review portal shows the F&B team exactly what was extracted, and they can correct or approve it in a few clicks.\n\nThe approved menus also feed the Air India booking page, where passengers can see what is served on their flight and pick a meal preference as they book. Because the catering team has checked every item, what a passenger picks is what the kitchen can serve.\n\nI designed and built the platform with Node.js, TypeScript, Python, PostgreSQL, and React.",
+      "Turns airline meal-card PDFs into verified, structured menu data, with domain experts approving every extraction before it is published.",
+    problem:
+      "Air India's Food & Beverage team received inflight meal plans as PDF meal cards and transcribed them into a database by hand: slow, repetitive work where every typing error reached downstream systems.",
+    solution:
+      "A Node.js processing service runs a multi-model agentic LLM workflow that reads each card's layout, extracts menu specifications against a structured schema, and stores the result in PostgreSQL. A React portal builds human-in-the-loop review into the publishing flow, so F&B specialists check, edit and approve each extraction before it is saved.",
+    contribution:
+      "Architected and built the platform as lead engineer: the extraction workflow, the data model, the processing service and the review portal.",
+    outcome:
+      "Manual transcription is replaced by review and approval, and no AI output reaches the database without a person signing it off.",
     image: "/images/whatsonmyai.jpg",
     imageAlt: "Airline catering kitchen with meal trays and paper cards",
-    tags: ["Applied AI", "Human review", "Node.js", "TypeScript"],
-    outcomes: [
-      { label: "Reads", value: "Meal cards" },
-      { label: "Checked by", value: "F&B team" },
-      { label: "Serves", value: "Booking page" },
-    ],
+    tags: ["Agentic AI", "HITL", "Node.js", "TypeScript", "PostgreSQL", "React"],
     featured: true,
   },
   {
@@ -74,17 +111,18 @@ export const projects: Project[] = [
     year: "2019 — 2024",
     role: "Senior Software Engineer · Phases",
     summary:
-      "A backup service that keeps businesses' Podio and e-conomic data safe, running large backup jobs in the background without slowing anything down.",
-    description:
-      "Teams that run their business on Podio or e-conomic need a copy of their data they can trust. Dataraven makes those backups automatically and keeps them restorable.\n\nThe hard part is volume: some accounts hold huge numbers of files and records. Dataraven splits the work into a queue of background jobs and spreads heavy tasks like compression across separate workers, so large backups finish reliably and memory stays under control. It runs as a set of small services on AWS, with dashboards and alerts so the team sees problems before customers do.\n\nBuilt with Node.js, TypeScript, BullMQ, Redis, Docker, and Kubernetes.",
+      "Automated backup and archival platform for Podio and e-conomic data, built to handle high volumes without memory spikes.",
+    problem:
+      "Businesses running on Podio and e-conomic needed dependable, automated backups of large volumes of workspace and document data, without jobs exhausting memory or stalling under load.",
+    solution:
+      "A distributed backup platform: BullMQ and Redis queue the jobs, Node.js worker threads take CPU-heavy compression and serialisation off the main thread, and microservices run on Kubernetes in AWS. Stream buffering and memory use were tuned for large payloads, and operators get dashboards, monitoring, alerting and usage tracking.",
+    contribution:
+      "Designed and developed the backend as part of the Phases team: job queueing, worker threads, Kubernetes microservices, and the monitoring and dashboards.",
+    outcome:
+      "Backups run concurrently at scale, with real-time visibility into every job.",
     image: "/images/dataraven.jpg",
     imageAlt: "Quiet bare-metal server room",
-    tags: ["Node.js", "Background jobs", "Kubernetes", "AWS"],
-    outcomes: [
-      { label: "Protects", value: "Podio" },
-      { label: "And", value: "e-conomic" },
-      { label: "Runs on", value: "AWS" },
-    ],
+    tags: ["Node.js", "BullMQ", "Redis", "Kubernetes", "AWS"],
   },
   {
     slug: "big-dk",
@@ -93,17 +131,18 @@ export const projects: Project[] = [
     year: "2019 — 2024",
     role: "Senior Software Engineer · Phases",
     summary:
-      "Connected the business tools companies already use (expense, ERP, sign-in, CRM, and accounting) so data moves between them automatically instead of by copy-paste.",
-    description:
-      "Most companies run on a handful of systems that don't talk to each other. At Phases I built the connections between them.\n\nFor BIG.DK, I automated the sales and user-account workflow across SAP Concur, their CMAP ERP, and Microsoft Azure AD, so new customers and staff are set up once and kept in sync everywhere. I also wrote a reusable PHP library for SAP Concur that several client projects shared, which made every new Concur integration faster to deliver.\n\nOther work included a pipeline that sends HubSpot sales data to Google BigQuery for leadership dashboards in Looker Studio, QuickBooks integrations, and APIs that let modern apps work with an older Microsoft NAV system.",
+      "Integrations connecting expense, identity, ERP, CRM and legacy systems, including a reusable SAP Concur SDK.",
+    problem:
+      "Several enterprise clients needed their expense management, identity, ERP, CRM and legacy back-office systems to share data reliably instead of through manual exports.",
+    solution:
+      "A PSR-7 PHP SDK for SAP Concur that standardised authentication and API calls across client projects; sales and identity automation for BIG.DK across SAP Concur, CMAP ERP and Azure AD; QuickBooks integration; a HubSpot-to-BigQuery pipeline on GCP feeding Looker Studio reports; and REST APIs, built with .NET and backend teams, in front of legacy MS NAV systems.",
+    contribution:
+      "Individual contributor: wrote the Concur SDK, and designed and built the integrations and data pipelines.",
+    outcome:
+      "One Concur SDK reused across multiple clients, and integration and reporting work that runs automatically instead of by hand.",
     image: "/images/integrations.jpg",
     imageAlt: "Server racks in a quiet data center aisle",
-    tags: ["SAP Concur", "Azure AD", "HubSpot", "GCP"],
-    outcomes: [
-      { label: "Connected", value: "7 systems" },
-      { label: "Reusable", value: "Concur SDK" },
-      { label: "Reporting", value: "BigQuery" },
-    ],
+    tags: ["PHP", "SAP Concur", "Azure AD", "HubSpot", "GCP"],
   },
   {
     slug: "pfc",
@@ -112,62 +151,18 @@ export const projects: Project[] = [
     year: "2019 — 2024",
     role: "Senior Software Engineer · Phases",
     summary:
-      "Digitised day-to-day operations for a Bengaluru plastics-recycling company: automated workflows for staff and franchisees, plus a mobile app for the team in the field.",
-    description:
-      "PFC runs a network of recycling franchisees, and much of its coordination lived in spreadsheets and messages. I set up their operations in Podio, covering employee onboarding, franchisee management, and tracking work between stakeholders, with the routine steps automated.\n\nTo reach staff who are rarely at a desk, I built a mobile app for Android and iOS that keeps field data in sync and gives managers live reports.\n\nBuilt with Podio, React Native, and GraphQL.",
+      "Workflow automation on Podio and a React Native app that gives a recycling company's field staff the same data as the office.",
+    problem:
+      "PFC, a plastics recycling company in Bengaluru, ran stakeholder workflows, employee onboarding and franchisee operations largely by hand, and its field staff had no mobile access to operational data.",
+    solution:
+      "Structured Podio workspaces with automated business logic for onboarding, stakeholder and franchisee workflows, plus a cross-platform React Native app on a GraphQL API for data sync, franchisee management and reporting in the field.",
+    contribution:
+      "Individual contributor: designed the workspace architecture and automations, and built the mobile app.",
+    outcome:
+      "Core operational workflows run in one automated system, and field staff work from the same data on their phones.",
     image: "/images/pfc.jpg",
     imageAlt: "Plastics recycling workshop with stacked bales and a conveyor",
     tags: ["Podio", "React Native", "GraphQL"],
-    outcomes: [
-      { label: "Client", value: "Recycling" },
-      { label: "Automated", value: "Onboarding" },
-      { label: "Mobile", value: "iOS + Android" },
-    ],
-  },
-];
-
-export type Essay = {
-  slug: string;
-  date: string;
-  title: string;
-  dek: string;
-  body: string[];
-};
-
-export const essays: Essay[] = [
-  {
-    slug: "whatsonmyai",
-    date: "2026",
-    title: "WhatsOnMyAI",
-    dek: "The AI does the typing. The F&B team keeps the final say.",
-    body: [
-      "Air India's F&B team used to type meal cards into a database by hand. WhatsOnMyAI reads those PDFs with several AI models working together, saves the result as structured data, and opens a portal where someone checks it.",
-      "The AI is not left on its own. Human review is the product, not an add-on. If the F&B team can't see and fix a row, it shouldn't have been saved.",
-      "Every extraction follows a fixed structure and waits for approval, so wrong data never reaches the systems that plan what goes on the aircraft.",
-      "The same menus appear on the airindia.com booking page, where travellers choose a meal preference as they book. Because the catering team has checked every item, what a passenger picks is what the kitchen can serve.",
-    ],
-  },
-  {
-    slug: "event-driven-airline-apis",
-    date: "2025",
-    title: "Airline APIs that can't drop a message",
-    dek: "Passenger, payment, and operations updates have to arrive in order, and only once.",
-    body: [
-      "A lot of airline software is really about updates: a passenger changes a booking, a payment clears, a flight's status changes. Other systems need to hear about each one, in the right order, exactly once.",
-      "That's the other half of my job at Air India: the APIs for passenger and payment updates and for operational notifications (OCN), with retries and logging so nothing goes missing quietly.",
-      "It's also why WhatsOnMyAI works. AI is only as reliable as the data and systems around it. Get those right first, and the AI has something solid to stand on.",
-    ],
-  },
-  {
-    slug: "lfs-lisp-security",
-    date: "Hobby",
-    title: "Linux From Scratch, Lisp, security",
-    dek: "Side work. I like knowing how the lower layers work.",
-    body: [
-      "I am going through Linux From Scratch. Compiling a system from source is slow, but it is the only way I have found to actually see what a Linux install is made of.",
-      "Lisp is the other thing. I wanted a better grip on functional programming, and on how evaluation works. Not another language for the CV.",
-      "Security has been sitting there for a while. The CVE Alert System came out of a 24-hour hackathon. I still like looking at how a service fails when someone is actually trying.",
-    ],
   },
 ];
 
@@ -208,33 +203,6 @@ export const experience = [
   },
 ] as const;
 
-export const capabilities = [
-  {
-    title: "Applied AI",
-    body: "AI workflows that do real work, with people reviewing the output. WhatsOnMyAI at Air India.",
-  },
-  {
-    title: "APIs & backends",
-    body: "REST and GraphQL APIs, NestJS, client SDKs. Passenger and payment systems at Air India.",
-  },
-  {
-    title: "Reliable systems",
-    body: "Queues and event streams (Kafka, RabbitMQ, Redis) for high-volume work that can't be lost.",
-  },
-  {
-    title: "Cloud & delivery",
-    body: "AWS, GCP, Kubernetes, Docker, Terraform, GitLab CI. Repeatable setups and safe deploys.",
-  },
-  {
-    title: "Observability",
-    body: "ELK, Prometheus, Grafana. Logging and alerts that halve the time to fix problems.",
-  },
-  {
-    title: "Security",
-    body: "OAuth 2.0, secure APIs, vulnerability monitoring. Hackathon CVE alert system, 2nd place.",
-  },
-] as const;
-
 export const practice = [
   {
     title: "Linux From Scratch",
@@ -264,9 +232,10 @@ export const openSource = [
 ] as const;
 
 export const about = {
-  p1: "I'm a lead engineer in Kochi with eight years building backend systems. At Air India I designed and built WhatsOnMyAI, which turns meal-card PDFs into checked menu data for the catering team and lets passengers choose their meal on the booking page. I also lead the APIs that carry passenger, payment, and operational updates across the airline.",
-  p2: "Before that I spent five and a half years at Phases, leading a team of five. We built Dataraven, a backup service for Podio and e-conomic, and connected business systems like SAP Concur, Azure AD, HubSpot, and BigQuery for clients including BIG.DK and PFC. I started at Unieke as a full-stack developer, building a matrimonial platform and working on UniekeCare for UK care homes.",
-  p3: "Outside work I am going through Linux From Scratch, learning Lisp, and reading about security. BSc Computer Science, Kerala University, 2014 to 2017.",
+  lead: "I'm a software engineer focused on building practical, reliable, and maintainable software.",
+  p1: "My experience spans frontend development, backend engineering, web applications, and e-commerce solutions. I enjoy understanding how a business operates, identifying technical challenges, and developing solutions that address them.",
+  p2: "I believe good software is not just about writing code. It's about solving the right problems, making sound engineering decisions, and delivering solutions that people can rely on.",
+  p3: "Today I'm a lead engineer at Air India in Kochi, building agentic AI workflows and event-driven APIs. Before that I spent five and a half years at Phases leading a team of five on backend services and integrations, and started out as a full-stack developer on Laravel and Vue.js products at Unieke.",
 };
 
 export const education = {
@@ -279,27 +248,6 @@ export const award = {
   title: "2nd place, Phases AI Hackathon 2024",
   detail: "CVE Alert System, solo, 24 hours.",
 };
-
-export const stack = [
-  "TypeScript",
-  "Node.js",
-  "NestJS",
-  "Python",
-  "Kafka",
-  "RabbitMQ",
-  "Redis",
-  "AWS",
-  "GCP",
-  "Kubernetes",
-  "Docker",
-  "Terraform",
-  "PostgreSQL",
-  "MongoDB",
-  "React",
-  "GraphQL",
-  "React Native",
-  "ELK",
-];
 
 export const jsonLd = {
   "@context": "https://schema.org",
@@ -328,7 +276,12 @@ export const jsonLd = {
     name: "Kerala University",
   },
   knowsAbout: [
-    "Applied AI",
+    "Web application development",
+    "Backend engineering",
+    "API development",
+    "System integration",
+    "WordPress",
+    "WooCommerce",
     "Agentic AI",
     "TypeScript",
     "Node.js",

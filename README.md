@@ -1,6 +1,6 @@
 # Ajay Kumar M
 
-Personal site for [Ajay Kumar M](https://github.com/AjiMk) — lead engineer in Kochi. APIs, event-driven systems, and AI agents at Air India.
+Personal site for [Ajay Kumar M](https://github.com/AjiMk) — software engineer in Kochi building web applications, backend systems and integrations.
 
 ## Run
 

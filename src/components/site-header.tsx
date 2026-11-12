@@ -98,10 +98,7 @@ export function SiteHeader() {
 
         <div className="hidden items-center gap-3 md:flex">
           <span className="flex items-center gap-2 font-mono text-xs text-muted-foreground">
-            <span className="relative flex size-2" aria-hidden="true">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
-            </span>
+            <span className="inline-flex size-2 rounded-full bg-emerald-500" aria-hidden="true" />
             {profile.availability}
           </span>
           <ThemeToggle />
